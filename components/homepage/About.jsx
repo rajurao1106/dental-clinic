@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
 import React from 'react';
-import { CheckCircle2, Sparkles, Navigation, ArrowRight } from 'lucide-react';
+import { CheckCircle2, Sparkles, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const AboutUs = () => {
@@ -12,9 +12,9 @@ const AboutUs = () => {
     'Long-term dental solutions',
   ];
 
-  // Animation Variants
+  // Smoother Animation Variants
   const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
   };
 
@@ -23,14 +23,14 @@ const AboutUs = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.1,
         delayChildren: 0.1,
       }
     }
   };
 
   const imageReveal = {
-    hidden: { opacity: 0, scale: 0.9 },
+    hidden: { opacity: 0, scale: 0.95 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: 'easeOut' } }
   };
 
@@ -45,44 +45,43 @@ const AboutUs = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Decorative Sparkles */}
+          {/* Decorative Sparkles - Subtle animation */}
           <motion.div 
-            className="absolute -top-6 -left-6 sm:-top-8 sm:-left-8 text-blue-600 z-0"
+            className="absolute -top-5 -left-5 sm:-top-6 sm:-left-6 text-blue-500 z-0 opacity-80"
             animate={{ 
-              scale: [1, 1.2, 1], 
-              opacity: [0.6, 1, 0.6] 
+              scale: [1, 1.1, 1], 
+              opacity: [0.5, 0.8, 0.5] 
             }}
             transition={{ 
-              duration: 3, 
+              duration: 4, 
               repeat: Infinity, 
               ease: "easeInOut" 
             }}
           >
-            <Sparkles size={56} className="sm:w-16 sm:h-16" fill="currentColor" />
           </motion.div>
           
-          {/* Main Image Container */}
+          {/* Main Image Container - Changed to rounded-2xl */}
           <motion.div 
             variants={imageReveal}
-            className="relative z-10 w-[85%] aspect-[4/5] ml-auto rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-xl border-4 border-white"
+            className="relative z-10 w-[85%] aspect-[4/5] ml-auto rounded-2xl overflow-hidden shadow-md border-4 border-white"
           >
             <img 
               src="/homepage/about1.jpg" 
               alt="Dr. Sunny Sikarwar and Team" 
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
             />
           </motion.div>
 
-          {/* Overlapping Secondary Image */}
+          {/* Overlapping Secondary Image - Changed to rounded-2xl */}
           <motion.div 
             variants={imageReveal}
             transition={{ delay: 0.2 }}
-            className="absolute bottom-6 sm:bottom-12 left-0 z-20 w-3/5 aspect-square rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-2xl border-4 sm:border-8 border-white"
+            className="absolute bottom-6 sm:bottom-12 left-0 z-20 w-3/5 aspect-square rounded-2xl overflow-hidden shadow-lg border-4 sm:border-[6px] border-white"
           >
             <img 
               src="/homepage/about2.jpg" 
               alt="Advanced dental care and patient treatment" 
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
             />
           </motion.div>
         </motion.div>
@@ -96,19 +95,19 @@ const AboutUs = () => {
           variants={staggerContainer}
         >
           <div className="space-y-4 flex flex-col items-center lg:items-start">
-            <motion.h3 variants={fadeUp} className="text-xs sm:text-sm font-extrabold tracking-[0.2em] text-blue-600 uppercase flex items-center gap-2">
+            <motion.h3 variants={fadeUp} className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 uppercase flex items-center gap-2">
               <span className="w-6 sm:w-8 h-0.5 bg-blue-600 rounded-full"></span>
               About Us
             </motion.h3>
             
-            <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
+            <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
               Welcome to <br />
               <span className="text-blue-600">Sikarwar Dental Hospital</span>
             </motion.h2>
             
-            <motion.div variants={fadeUp} className="space-y-4 text-slate-600 text-base sm:text-lg leading-relaxed max-w-lg pt-2">
+            <motion.div variants={fadeUp} className="space-y-4 text-slate-600 text-base sm:text-lg leading-relaxed max-w-lg pt-2 font-normal">
               <p>
-                <strong>Sikarwar Dental Hospital & Implant Center</strong> is one of Raipur’s trusted centers for advanced dental and maxillofacial care. Our mission is simple—restore oral health, improve confidence, and create healthy smiles for every patient.
+                <strong className="font-semibold text-slate-800">Sikarwar Dental Hospital & Implant Center</strong> is one of Raipur’s trusted centers for advanced dental and maxillofacial care. Our mission is simple—restore oral health, improve confidence, and create healthy smiles for every patient.
               </p>
               <p>
                 With years of expertise and modern treatment protocols, we provide complete dental care under one roof—from routine cleanings to complex implant surgeries.
@@ -121,20 +120,20 @@ const AboutUs = () => {
               <motion.li 
                 key={idx} 
                 variants={fadeUp}
-                whileHover={{ scale: 1.02, x: 5 }}
-                className="flex items-center justify-start gap-3 bg-slate-50 p-3 rounded-lg border border-slate-100 transition-colors hover:bg-white hover:shadow-sm hover:border-blue-100 text-left"
+                whileHover={{ scale: 1.02, x: 2 }}
+                className="flex items-center justify-start gap-3 bg-white p-3.5 rounded-lg border border-slate-200 transition-all hover:shadow-sm hover:border-blue-200 text-left"
               >
-                <CheckCircle2 size={20} className="text-blue-600 fill-blue-100 shrink-0" />
-                <span className="text-slate-700 font-semibold text-sm">{text}</span>
+                <CheckCircle2 size={18} className="text-blue-600 fill-blue-50 shrink-0" />
+                <span className="text-slate-700 font-medium text-sm">{text}</span>
               </motion.li>
             ))}
           </motion.ul>
 
-          <motion.div variants={fadeUp} className="pt-4 w-full sm:w-auto">
+          <motion.div variants={fadeUp} className="pt-2 w-full sm:w-auto">
             <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center justify-center gap-2 bg-blue-600 text-white w-full sm:w-auto px-8 py-3.5 rounded-full text-sm sm:text-base font-semibold shadow-md shadow-blue-600/20"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto px-8 py-3.5 rounded-lg text-sm sm:text-base font-medium shadow-sm transition-colors"
             >
               Meet Dr. Sunny Sikarwar
               <ArrowRight size={18} />

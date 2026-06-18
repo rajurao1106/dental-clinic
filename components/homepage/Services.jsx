@@ -45,7 +45,6 @@ const Services = () => {
         "Permanent replacement for missing teeth with advanced implant systems including conventional and basal implants.",
       image: "/homepage/service1.jpg",
       icon: ShieldPlus,
-      isActive: true,
     },
     {
       title: "Teeth in 72 Hours",
@@ -53,7 +52,6 @@ const Services = () => {
         "Get fixed teeth in just 72 hours using modern implant-supported rehabilitation and advanced protocols.",
       image: "/homepage/service2.jpg",
       icon: Clock,
-      isActive: false,
     },
     {
       title: "Root Canal Treatment",
@@ -61,7 +59,6 @@ const Services = () => {
         "Save infected teeth with painless root canal procedures using advanced endodontic technology.",
       image: "/homepage/service3.jpg",
       icon: Activity,
-      isActive: false,
     },
     {
       title: "Braces & Clear Aligners",
@@ -69,7 +66,6 @@ const Services = () => {
         "Straighten teeth and correct your bite with modern, invisible orthodontic solutions.",
       image: "/homepage/service4.jpg",
       icon: Smile,
-      isActive: false,
     },
     {
       title: "Wisdom Tooth Surgery",
@@ -77,7 +73,6 @@ const Services = () => {
         "Safe and comfortable surgical extraction of impacted wisdom teeth by our expert oral surgeon.",
       image: "/homepage/service5.jpg",
       icon: Stethoscope,
-      isActive: false,
     },
     {
       title: "Smile Designing",
@@ -85,13 +80,12 @@ const Services = () => {
         "Improve aesthetics with custom veneers, whitening, and comprehensive cosmetic procedures.",
       image: "/homepage/service6.jpg",
       icon: Sparkles,
-      isActive: false,
     },
   ];
 
-  // Animation Variants
+  // Smoother Animation Variants
   const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
@@ -107,18 +101,17 @@ const Services = () => {
     },
   };
 
-  // Reusable Marquee Banner Component
+  // Reusable Marquee Banner Component - Made slightly thinner and more elegant
   const MarqueeBanner = () => (
-    <div className="bg-blue-600 py-3.5 overflow-hidden flex whitespace-nowrap border-y border-blue-700 shadow-inner">
+    <div className="bg-blue-600 py-3 overflow-hidden flex whitespace-nowrap border-y border-blue-700">
       <div className="flex animate-marquee items-center">
-        {/* Repeating items to create a seamless loop */}
         {[...marqueeItems, ...marqueeItems, ...marqueeItems].map(
           (item, index) => (
             <div key={index} className="flex items-center mx-4 md:mx-8">
-              <span className="text-blue-50 font-semibold text-base md:text-lg tracking-wide mr-4 md:mr-8">
+              <span className="text-blue-50 font-medium text-sm md:text-base tracking-wide mr-4 md:mr-8">
                 {item}
               </span>
-              <ToothIcon className="w-4 h-4 md:w-5 md:h-5 text-blue-200 opacity-80" />
+              <ToothIcon className="w-4 h-4 md:w-5 md:h-5 text-blue-300 opacity-70" />
             </div>
           ),
         )}
@@ -128,7 +121,6 @@ const Services = () => {
 
   return (
     <section id="services" className="bg-slate-50 flex flex-col relative overflow-hidden">
-      {/* Inline styles for the marquee animation */}
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0%); }
@@ -156,19 +148,19 @@ const Services = () => {
           className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6"
         >
           <div className="space-y-4 text-center md:text-left">
-            <h3 className="text-sm font-extrabold tracking-[0.2em] text-blue-600 uppercase flex items-center justify-center md:justify-start gap-2">
+            <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 uppercase flex items-center justify-center md:justify-start gap-2">
               <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
               Our Dental Services
             </h3>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
               Advanced Treatments <br className="hidden sm:block" />
               <span className="text-blue-600">for Your Best Smile</span>
             </h2>
           </div>
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-3.5 rounded-full font-semibold shadow-md whitespace-nowrap w-full md:w-auto"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-8 py-3.5 rounded-lg font-medium shadow-sm transition-colors whitespace-nowrap w-full md:w-auto"
           >
             View All Services
             <ArrowRight size={18} />
@@ -187,49 +179,40 @@ const Services = () => {
             <motion.div
               key={idx}
               variants={fadeUp}
-              whileHover={{ y: -8 }}
-              className={`group bg-white rounded-[2rem] md:rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-500 flex flex-col cursor-pointer ${
-                service.isActive ? "ring-4 ring-blue-50" : ""
-              }`}
+              whileHover={{ y: -6 }}
+              className="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-300 flex flex-col cursor-pointer"
             >
-              {/* Added a relative wrapper so icon isn't clipped by image's overflow-hidden */}
               <div className="relative">
                 {/* Card Image area */}
-                <div className="relative h-52 md:h-60 bg-slate-200 overflow-hidden">
+                <div className="relative h-52 md:h-56 bg-slate-100 overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  {/* Image Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent z-0"></div>
+                  {/* Subtle Image Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent z-0"></div>
                 </div>
 
-                {/* Overlapping Icon Badge (Now outside the overflow-hidden container) */}
-                <div className="absolute -bottom-8 left-6 w-14 h-14 md:w-16 md:h-16 bg-blue-600 rounded-xl md:rounded-2xl rotate-3 group-hover:rotate-0 transition-transform duration-300 flex items-center justify-center border-4 border-white shadow-lg z-10">
-                  <service.icon size={24} className="text-white md:w-[26px] md:h-[26px]" />
+                {/* Overlapping Icon Badge - Clean, squared-off corners without rotation */}
+                <div className="absolute -bottom-6 left-6 w-12 h-12 md:w-14 md:h-14 bg-blue-600 rounded-lg shadow-md flex items-center justify-center border-4 border-white z-10 transition-transform duration-300 group-hover:-translate-y-1">
+                  <service.icon size={22} className="text-white" />
                 </div>
               </div>
 
               {/* Card Content */}
-              <div className="pt-12 pb-6 px-6 md:pt-14 md:pb-8 md:px-8 flex-1 flex flex-col">
-                <h4 className="text-lg md:text-xl font-bold text-slate-900 mb-2 md:mb-3 group-hover:text-blue-600 transition-colors">
+              <div className="pt-10 pb-6 px-6 md:pt-12 md:pb-8 md:px-8 flex-1 flex flex-col">
+                <h4 className="text-lg md:text-xl font-semibold text-slate-900 mb-2 md:mb-3 group-hover:text-blue-600 transition-colors">
                   {service.title}
                 </h4>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6 md:mb-8 flex-1">
+                <p className="text-slate-600 text-sm leading-relaxed mb-6 md:mb-8 flex-1 font-normal">
                   {service.description}
                 </p>
-                <div
-                  className={`inline-flex items-center gap-2 text-sm font-bold transition-all duration-300 w-fit ${
-                    service.isActive
-                      ? "text-blue-600"
-                      : "text-slate-700 group-hover:text-blue-600"
-                  }`}
-                >
+                <div className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 group-hover:text-blue-600 transition-colors w-fit">
                   Learn more
                   <ArrowRight
                     size={16}
-                    className="group-hover:translate-x-1.5 transition-transform duration-300"
+                    className="group-hover:translate-x-1 transition-transform duration-300"
                   />
                 </div>
               </div>

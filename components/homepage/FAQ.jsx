@@ -1,48 +1,49 @@
 "use client";
+
 import React, { useState } from "react";
 import { Plus, Minus, MessageSquare, PhoneCall } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const FAQ = () => {
-  // State to track which FAQ is currently open
-  const [openFaq, setOpenFaq] = useState(1); // Defaults to the second item (index 1)
+  const [openFaq, setOpenFaq] = useState(0); // Defaults to the first item
 
+  // Replaced Lorem Ipsum with realistic Dental FAQ content
   const faqs = [
     {
       question: "What services do you offer?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "We provide comprehensive dental care including dental implants, painless root canal treatments, smile designing, orthodontic aligners, oral surgery, and routine check-ups.",
     },
     {
       question: "Do I need to make an appointment?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+        "While we do accommodate walk-ins when possible, we highly recommend booking an appointment to ensure you receive timely care without long waiting periods.",
     },
     {
-      question: "Do you accept walk-in appointments?",
+      question: "What are your clinic timings?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Our standard OPD hours are from 10:00 AM to 8:00 PM, Monday through Saturday. However, our emergency dental services are available 24/7.",
     },
     {
       question: "Can I book an emergency dental appointment?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Yes. If you are experiencing severe toothache, trauma, or bleeding, please call our emergency hotline immediately. We prioritize urgent cases.",
     },
     {
       question: "Do you offer online consultations?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Yes, we provide preliminary online video consultations to understand your concerns and guide you on the necessary steps before your physical visit.",
     },
     {
       question: "What is the cost of a dental consultation?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Our initial consultation fee is affordable and transparent. Total treatment costs depend on the diagnosis and procedure required, which will be thoroughly discussed with you beforehand.",
     },
   ];
 
-  // Animation Variants
+  // Smoother Animation Variants
   const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
@@ -54,12 +55,12 @@ const FAQ = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1 },
+      transition: { staggerChildren: 0.1, delayChildren: 0.1 },
     },
   };
 
   const slideInRight = {
-    hidden: { opacity: 0, x: 40 },
+    hidden: { opacity: 0, x: 20 },
     visible: {
       opacity: 1,
       x: 0,
@@ -68,33 +69,36 @@ const FAQ = () => {
   };
 
   return (
-    <section className="bg-[#0b1a33] py-16 md:py-24 px-4 md:px-8 flex flex-col items-center overflow-hidden">
+    <section className="bg-slate-50 py-16 md:py-24 px-4 md:px-8 flex flex-col items-center overflow-hidden">
+      
       {/* Header */}
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={fadeUp}
-        className="text-center mb-12 md:mb-16 space-y-3 md:space-y-4 px-4"
+        className="text-center mb-12 md:mb-16 space-y-4 px-4"
       >
-        <h3 className="text-xs sm:text-sm font-bold tracking-[0.2em] text-gray-400 uppercase">
-          FAQS
+        <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 uppercase flex items-center justify-center gap-2">
+          <span className="w-6 sm:w-8 h-0.5 bg-blue-600 rounded-full"></span>
+          FAQ
+          <span className="w-6 sm:w-8 h-0.5 bg-blue-600 rounded-full"></span>
         </h3>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
-          <span className="text-blue-500">Dental Care FAQ:</span> Your{" "}
-          <br className="hidden md:block" />
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
+          <span className="text-blue-600">Dental Care FAQ:</span> Your <br className="hidden md:block" />
           Questions Answered
         </h2>
       </motion.div>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 w-full">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 w-full items-start">
+        
         {/* Left Side: FAQ Accordion (Takes up 2 columns) */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="lg:col-span-2 space-y-4"
+          className="lg:col-span-2 space-y-3"
         >
           {faqs.map((faq, index) => {
             const isOpen = openFaq === index;
@@ -104,14 +108,18 @@ const FAQ = () => {
                 key={index}
                 variants={fadeUp}
                 onClick={() => setOpenFaq(isOpen ? null : index)}
-                className={`cursor-pointer rounded-[1.25rem] md:rounded-2xl overflow-hidden transition-colors duration-300 ${
-                  isOpen ? "bg-blue-600 shadow-lg" : "bg-white hover:bg-gray-50"
+                className={`cursor-pointer rounded-xl overflow-hidden transition-all duration-300 border ${
+                  isOpen 
+                    ? "bg-white border-blue-200 shadow-md ring-1 ring-blue-50" 
+                    : "bg-white border-slate-200 hover:border-blue-100 hover:shadow-sm"
                 }`}
               >
                 {/* Question Area */}
-                <div className="px-4 sm:px-5 md:px-6 py-4 md:py-5 flex items-center justify-between">
+                <div className="px-5 md:px-6 py-4 md:py-5 flex items-center justify-between bg-white">
                   <h4
-                    className={`font-bold text-sm sm:text-base pr-4 transition-colors duration-300 ${isOpen ? "text-white" : "text-gray-900"}`}
+                    className={`font-semibold text-sm sm:text-base pr-4 transition-colors duration-300 ${
+                      isOpen ? "text-blue-600" : "text-slate-800"
+                    }`}
                   >
                     {faq.question}
                   </h4>
@@ -119,9 +127,11 @@ const FAQ = () => {
                     initial={false}
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className={`flex-shrink-0 ml-2 md:ml-4 ${isOpen ? "text-white" : "text-gray-500"}`}
+                    className={`flex-shrink-0 ml-2 md:ml-4 flex items-center justify-center w-8 h-8 rounded-full transition-colors ${
+                      isOpen ? "bg-blue-50 text-blue-600" : "bg-slate-50 text-slate-400"
+                    }`}
                   >
-                    {isOpen ? <Minus size={20} className="w-4 h-4 md:w-5 md:h-5" /> : <Plus size={20} className="w-4 h-4 md:w-5 md:h-5" />}
+                    {isOpen ? <Minus size={18} /> : <Plus size={18} />}
                   </motion.button>
                 </div>
 
@@ -134,8 +144,8 @@ const FAQ = () => {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="px-4 sm:px-5 md:px-6 pb-4 md:pb-6 pt-1">
-                        <p className="text-xs sm:text-sm leading-relaxed text-blue-100">
+                      <div className="px-5 md:px-6 pb-5 pt-1 bg-white">
+                        <p className="text-sm leading-relaxed text-slate-600 font-normal border-t border-slate-100 pt-4 mt-1">
                           {faq.answer}
                         </p>
                       </div>
@@ -158,26 +168,30 @@ const FAQ = () => {
           {/* Support CTA Card */}
           <motion.div
             variants={slideInRight}
-            className="bg-blue-600 rounded-[1.5rem] md:rounded-3xl p-8 lg:p-10 flex flex-col items-center text-center shadow-lg"
+            className="bg-blue-600 rounded-2xl p-8 lg:p-10 flex flex-col items-center text-center shadow-md relative overflow-hidden"
           >
+            {/* Subtle background element */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-bl-full pointer-events-none" />
+
             <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-              className="mb-5 md:mb-6 text-white"
+              animate={{ y: [0, -5, 0] }}
+              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              className="mb-5 text-white"
             >
-              <MessageSquare className="w-10 h-10 md:w-12 md:h-12 fill-white" />
+              <MessageSquare className="w-10 h-10 md:w-12 md:h-12 fill-white/20 stroke-white" strokeWidth={1.5} />
             </motion.div>
-            <h4 className="text-white font-bold text-lg md:text-xl mb-2 md:mb-3">
-              You have different questions?
+            
+            <h4 className="text-white font-semibold text-lg md:text-xl mb-3">
+              Have more questions?
             </h4>
-            <p className="text-blue-100 text-xs sm:text-sm leading-relaxed mb-6 md:mb-8">
-              Our team will answer all your questions. We ensure a quick
-              response.
+            <p className="text-blue-100 text-sm leading-relaxed mb-8 font-normal">
+              Our team is ready to provide all the answers you need. We ensure a quick and helpful response.
             </p>
+            
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-blue-600 px-8 py-3.5 md:py-3 rounded-full text-sm font-bold hover:bg-gray-50 transition shadow-md w-full sm:w-auto"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-white text-blue-600 px-8 py-3 rounded-lg text-sm font-semibold hover:bg-slate-50 transition-colors shadow-sm w-full sm:w-auto"
             >
               Contact Us
             </motion.button>
@@ -186,26 +200,24 @@ const FAQ = () => {
           {/* Emergency Card */}
           <motion.div
             variants={slideInRight}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="bg-white rounded-[1.25rem] md:rounded-3xl p-5 md:p-6 shadow-sm flex items-center gap-4 md:gap-6 cursor-pointer group"
+            whileHover={{ y: -4 }}
+            className="bg-white border border-slate-200 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-4 cursor-pointer group"
           >
-            <div className="w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
-              <PhoneCall
-                className="w-5 h-5 md:w-6 md:h-6 text-blue-600 group-hover:text-white transition-colors duration-300"
-              />
+            <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
+              <PhoneCall className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors duration-300" />
             </div>
             <div>
-              <p className="text-[10px] md:text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-0.5 md:mb-1">
+              <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1">
                 Your Smile, Our Priority
               </p>
-              <h4 className="text-base md:text-lg font-bold text-gray-900 mb-0.5 md:mb-1">
+              <h4 className="text-base font-bold text-slate-900 mb-0.5">
                 24/7 Emergency
               </h4>
-              <p className="text-gray-500 text-xs md:text-sm">+917400656692</p>
+              <p className="text-blue-600 font-medium text-sm">+91 74006 56692</p>
             </div>
           </motion.div>
         </motion.div>
+
       </div>
     </section>
   );

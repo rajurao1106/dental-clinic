@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { Stethoscope, X, Menu } from 'lucide-react';
 
 const Navbar = () => {
-  // State to manage modal and mobile menu visibility
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -16,27 +15,25 @@ const Navbar = () => {
     { name: 'Contact Us', href: '#contact' },
   ];
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Yahan aap apna form submission logic daal sakte hain (jaise API call ya Email bhejna)
     alert("Appointment Request Submitted Successfully!");
-    setIsModalOpen(false); // Close modal after submit
+    setIsModalOpen(false);
   };
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 relative">
-        <div className="flex items-center justify-between px-4 md:px-8 py-4">
+      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200 relative">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 py-3.5">
           
           {/* Logo Section */}
           <a href="#hero" className="flex items-center gap-3 cursor-pointer group">
-            <div className="bg-blue-600 p-2 rounded-xl shadow-lg shadow-blue-600/20 text-white group-hover:scale-105 transition-transform">
-              <Stethoscope size={24} />
+            <div className="bg-blue-600 p-2.5 rounded-lg text-white group-hover:bg-blue-700 transition-colors">
+              <Stethoscope size={22} strokeWidth={2.5} />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-extrabold tracking-tight text-slate-900 leading-none">Sikarwar</span>
-              <span className="text-[9px] font-bold text-blue-600 tracking-widest uppercase mt-1">Dental Hospital</span>
+              <span className="text-xl font-semibold tracking-tight text-slate-900 leading-none">Sikarwar</span>
+              <span className="text-[10px] font-medium text-slate-500 tracking-wider uppercase mt-1">Dental Hospital</span>
             </div>
           </a>
 
@@ -46,7 +43,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors"
+                className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
               >
                 {link.name}
               </a>
@@ -58,7 +55,7 @@ const Navbar = () => {
             {/* Desktop CTA Button */}
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-sm font-bold transition-all shadow-md hover:shadow-lg hover:shadow-blue-600/20"
+              className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-sm"
             >
               Book Consultation
             </button>
@@ -66,22 +63,22 @@ const Navbar = () => {
             {/* Mobile Menu Toggle Button */}
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-slate-600 hover:text-blue-600 transition-colors p-2"
+              className="md:hidden text-slate-600 hover:text-slate-900 transition-colors p-2 rounded-md hover:bg-slate-50"
             >
-              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
 
         {/* Mobile Menu Dropdown */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-100 shadow-lg px-4 py-6 flex flex-col gap-4 animate-in slide-in-from-top-2 duration-200">
+          <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-md px-4 py-4 flex flex-col gap-2 animate-in slide-in-from-top-2 duration-200">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)} // Close menu on click
-                className="text-base font-bold text-slate-600 hover:text-blue-600 transition-colors block py-2 border-b border-slate-50 last:border-0"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-colors block px-3 py-3 rounded-md"
               >
                 {link.name}
               </a>
@@ -91,7 +88,7 @@ const Navbar = () => {
                 setIsMobileMenuOpen(false);
                 setIsModalOpen(true);
               }}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 mt-2 rounded-xl text-sm font-bold transition-all shadow-md"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 mt-3 rounded-lg text-sm font-semibold transition-all shadow-sm"
             >
               Book Consultation
             </button>
@@ -99,51 +96,51 @@ const Navbar = () => {
         )}
       </nav>
 
-      {/* Appointment Modal Popup (Unchanged) */}
+      {/* Appointment Modal Popup */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
           {/* Modal Container */}
-          <div className="bg-white rounded-3xl w-full max-w-md overflow-hidden shadow-2xl relative animate-in fade-in zoom-in duration-200">
+          <div className="bg-white rounded-2xl w-full max-w-md shadow-xl relative animate-in fade-in zoom-in duration-200 flex flex-col">
             
             {/* Modal Header */}
-            <div className="bg-blue-600 p-6 text-white flex justify-between items-center">
+            <div className="flex justify-between items-center p-6 border-b border-slate-100">
               <div>
-                <h3 className="text-xl font-extrabold">Book an Appointment</h3>
-                <p className="text-blue-100 text-sm mt-1">We'll get back to you shortly.</p>
+                <h3 className="text-lg font-semibold text-slate-900">Book an Appointment</h3>
+                <p className="text-slate-500 text-sm mt-1">We'll get back to you shortly.</p>
               </div>
               <button 
                 onClick={() => setIsModalOpen(false)} 
-                className="text-white/80 hover:text-white bg-blue-700/50 hover:bg-blue-700 p-2 rounded-full transition-colors"
+                className="text-slate-400 hover:text-slate-600 hover:bg-slate-100 p-2 rounded-lg transition-colors"
               >
                 <X size={20} />
               </button>
             </div>
 
             {/* Modal Form */}
-            <form onSubmit={handleSubmit} className="p-6 space-y-4">
+            <form onSubmit={handleSubmit} className="p-6 space-y-5">
               <div>
-                <label className="block text-sm font-bold text-slate-700 mb-1.5">Full Name</label>
+                <label className="block text-sm font-medium text-slate-700 mb-1.5">Full Name</label>
                 <input 
                   type="text" 
                   required 
-                  className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" 
+                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 placeholder:text-slate-400" 
                   placeholder="John Doe" 
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-bold text-slate-700 mb-1.5">Phone Number</label>
+                <label className="block text-sm font-medium text-slate-700 mb-1.5">Phone Number</label>
                 <input 
                   type="tel" 
                   required 
-                  className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all" 
+                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 placeholder:text-slate-400" 
                   placeholder="+91 98765 43210" 
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-bold text-slate-700 mb-1.5">Select Service</label>
-                <select className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all text-slate-700">
+                <label className="block text-sm font-medium text-slate-700 mb-1.5">Select Service</label>
+                <select className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 bg-white">
                   <option value="">General Consultation</option>
                   <option value="implants">Dental Implants</option>
                   <option value="root-canal">Root Canal Treatment</option>
@@ -153,20 +150,22 @@ const Navbar = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-bold text-slate-700 mb-1.5">Preferred Date</label>
+                <label className="block text-sm font-medium text-slate-700 mb-1.5">Preferred Date</label>
                 <input 
                   type="date" 
                   required 
-                  className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all text-slate-700" 
+                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900" 
                 />
               </div>
 
-              <button 
-                type="submit" 
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl mt-2 transition-all shadow-md hover:shadow-lg shadow-blue-600/20"
-              >
-                Confirm Booking
-              </button>
+              <div className="pt-2">
+                <button 
+                  type="submit" 
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all shadow-sm"
+                >
+                  Confirm Booking
+                </button>
+              </div>
             </form>
             
           </div>
