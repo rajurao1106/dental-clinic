@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Stethoscope, X } from 'lucide-react';
+import { Stethoscope, X, Menu } from 'lucide-react';
 
 const Navbar = () => {
-  // State to manage modal visibility
+  // State to manage modal and mobile menu visibility
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { name: 'Home', href: '#hero' }, 
@@ -25,42 +26,80 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 flex items-center justify-between px-8 py-4 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
-        
-        {/* Logo Section */}
-        <a href="#hero" className="flex items-center gap-3 cursor-pointer group">
-          <div className="bg-blue-600 p-2 rounded-xl shadow-lg shadow-blue-600/20 text-white group-hover:scale-105 transition-transform">
-            <Stethoscope size={24} />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-xl font-extrabold tracking-tight text-slate-900 leading-none">Sikarwar</span>
-            <span className="text-[9px] font-bold text-blue-600 tracking-widest uppercase mt-1">Dental Hospital</span>
-          </div>
-        </a>
+      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 relative">
+        <div className="flex items-center justify-between px-4 md:px-8 py-4">
+          
+          {/* Logo Section */}
+          <a href="#hero" className="flex items-center gap-3 cursor-pointer group">
+            <div className="bg-blue-600 p-2 rounded-xl shadow-lg shadow-blue-600/20 text-white group-hover:scale-105 transition-transform">
+              <Stethoscope size={24} />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-extrabold tracking-tight text-slate-900 leading-none">Sikarwar</span>
+              <span className="text-[9px] font-bold text-blue-600 tracking-widest uppercase mt-1">Dental Hospital</span>
+            </div>
+          </a>
 
-        {/* Nav Links */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors"
+          {/* Desktop Nav Links */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+
+          {/* Right Section: Desktop CTA & Mobile Toggle */}
+          <div className="flex items-center gap-4">
+            {/* Desktop CTA Button */}
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-sm font-bold transition-all shadow-md hover:shadow-lg hover:shadow-blue-600/20"
             >
-              {link.name}
-            </a>
-          ))}
+              Book Consultation
+            </button>
+
+            {/* Mobile Menu Toggle Button */}
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden text-slate-600 hover:text-blue-600 transition-colors p-2"
+            >
+              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
 
-        {/* CTA Button (Changed from <a> to <button>) */}
-        <button 
-          onClick={() => setIsModalOpen(true)}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-sm font-bold transition-all shadow-md hover:shadow-lg hover:shadow-blue-600/20"
-        >
-          Book Consultation
-        </button>
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-slate-100 shadow-lg px-4 py-6 flex flex-col gap-4 animate-in slide-in-from-top-2 duration-200">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)} // Close menu on click
+                className="text-base font-bold text-slate-600 hover:text-blue-600 transition-colors block py-2 border-b border-slate-50 last:border-0"
+              >
+                {link.name}
+              </a>
+            ))}
+            <button 
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsModalOpen(true);
+              }}
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 mt-2 rounded-xl text-sm font-bold transition-all shadow-md"
+            >
+              Book Consultation
+            </button>
+          </div>
+        )}
       </nav>
 
-      {/* Appointment Modal Popup */}
+      {/* Appointment Modal Popup (Unchanged) */}
       {isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
           {/* Modal Container */}
