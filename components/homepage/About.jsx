@@ -46,7 +46,7 @@ const AboutUs = () => {
   };
 
   return (
-    <section className="py-20 px-8 bg-white overflow-hidden">
+    <section id='about' className="py-20 px-8 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
         
         {/* Left Side: Image Composition */}
@@ -78,7 +78,7 @@ const AboutUs = () => {
             className="relative z-10 w-[85%] aspect-[4/5] ml-auto rounded-[3rem] overflow-hidden shadow-xl border-4 border-white"
           >
             <img 
-              src="/dentist-main.jpg" 
+              src="/homepage/about1.jpg" 
               alt="Dr. Sunny Sikarwar and Team" 
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
             />
@@ -91,28 +91,13 @@ const AboutUs = () => {
             className="absolute bottom-12 left-0 z-20 w-3/5 aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white"
           >
             <img 
-              src="/patient-care.jpg" 
+              src="/homepage/about2.jpg" 
               alt="Advanced dental care and patient treatment" 
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
             />
           </motion.div>
 
-          {/* Circular Contact Badge */}
-          <motion.div 
-            variants={popIn}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="absolute -bottom-6 right-12 z-30 w-32 h-32 bg-slate-900 rounded-full flex items-center justify-center shadow-lg border-4 border-white cursor-pointer"
-          >
-            {/* Inner Blue Circle */}
-            <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center absolute z-10 shadow-inner">
-              <Navigation size={20} className="text-white fill-white rotate-45" />
-            </div>
-            {/* Circular Text */}
-            <div className="text-white text-[10px] font-bold tracking-widest uppercase text-center leading-tight">
-              Get in Touch<br/><br/><br/><br/>With Us
-            </div>
-          </motion.div>
+         
         </motion.div>
 
         {/* Right Side: Content */}

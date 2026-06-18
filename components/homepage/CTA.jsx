@@ -56,7 +56,7 @@ const Booking = () => {
   );
 
   return (
-    <section className="bg-slate-50 flex flex-col relative" id="book-appointment">
+    <section id="contact" className="bg-slate-50 flex flex-col relative" id="book-appointment">
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0%); }

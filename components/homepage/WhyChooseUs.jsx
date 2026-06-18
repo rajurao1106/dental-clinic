@@ -56,32 +56,13 @@ const WhyChooseUs = () => {
   };
 
   return (
-    <section className="py-24 px-8 bg-white overflow-hidden relative">
+    <section id='why-choose-us' className="py-24 px-8 bg-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
         
-        {/* Top Header Section */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
-          className="max-w-3xl mx-auto text-center mb-16 space-y-4"
-        >
-          <h3 className="text-sm font-extrabold tracking-[0.2em] text-blue-600 uppercase flex items-center justify-center gap-2">
-            <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
-            Why Choose Us
-            <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
-          </h3>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
-            Why Patients Trust <br className="hidden md:block" />
-            <span className="text-blue-600">Sikarwar Dental Hospital</span>
-          </h2>
-        </motion.div>
-
         {/* Main Content Split */}
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           
-          {/* Left Side: Circular Video/Image Area */}
+          {/* Left Side: Portrait Image Area */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -89,33 +70,23 @@ const WhyChooseUs = () => {
             variants={scaleIn}
             className="relative w-full max-w-md mx-auto flex-1"
           >
-            {/* Decorative Dashed Arc (Top Right) */}
+            {/* Decorative Dashed Frame (Top Right) */}
             <motion.div 
-              animate={{ rotate: 360 }}
-              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-4 -right-4 w-[110%] h-[110%] rounded-full border-[3px] border-transparent border-t-blue-600 border-r-blue-600 border-dashed opacity-50 z-0"
+              initial={{ opacity: 0, x: -20, y: 20 }}
+              whileInView={{ opacity: 0.5, x: 0, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="absolute -top-6 -right-6 w-full h-full rounded-3xl border-[3px] border-blue-600 border-dashed z-0"
             />
             
-            {/* Outer Gray Ring */}
-            <div className="relative z-10 p-4 rounded-full border border-slate-100 bg-white shadow-xl shadow-slate-200/50">
-              {/* Inner Image Container */}
-              <div className="relative rounded-full overflow-hidden aspect-square bg-slate-100 group cursor-pointer">
+            {/* Outer Gray Frame */}
+            <div className="relative z-10 p-3 rounded-3xl border border-slate-100 bg-white shadow-xl shadow-slate-200/50">
+              {/* Inner Portrait Image Container */}
+              <div className="relative rounded-2xl overflow-hidden aspect-[3/4] bg-slate-100 group cursor-pointer">
                 <img 
-                  src="/dental-patient-smile.jpg" 
+                  src="/homepage/whychooseus.png" 
                   alt="Happy patient at Sikarwar Dental Hospital" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
                 />
-                
-                {/* Play Button Overlay */}
-                <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center">
-                  <motion.button 
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-20 h-20 bg-white/60 backdrop-blur-md rounded-full flex items-center justify-center border border-white shadow-lg transition-all"
-                  >
-                    <Play size={28} className="text-blue-600 fill-blue-600 ml-1" />
-                  </motion.button>
-                </div>
               </div>
             </div>
 
@@ -130,13 +101,13 @@ const WhyChooseUs = () => {
                 repeat: Infinity, 
                 ease: "easeInOut" 
               }}
-              className="absolute -bottom-4 -left-8 z-20 text-blue-600"
+              className="absolute -bottom-6 -left-8 z-20 text-blue-600"
             >
               <Sparkles size={80} className="fill-blue-100 text-blue-600" />
             </motion.div>
           </motion.div>
 
-          {/* Right Side: Text & Stats */}
+          {/* Right Side: Title, Description, Stats & Points */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -144,12 +115,25 @@ const WhyChooseUs = () => {
             variants={staggerContainer}
             className="flex-1 w-full space-y-8"
           >
+            {/* Title Section (Moved from top) */}
+            <motion.div variants={fadeUp} className="space-y-4">
+              <h3 className="text-sm font-extrabold tracking-[0.2em] text-blue-600 uppercase flex items-center gap-2">
+                <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
+                Why Choose Us
+              </h3>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
+                Why Patients Trust <br className="hidden md:block" />
+                <span className="text-blue-600">Sikarwar Dental Hospital</span>
+              </h2>
+            </motion.div>
+
+            {/* Description */}
             <motion.p variants={fadeUp} className="text-slate-600 text-lg leading-relaxed max-w-lg">
               We combine clinical expertise, modern technology, and a patient-first approach to deliver exceptional dental results in a safe and comfortable environment.
             </motion.p>
 
-            {/* Stats Row */}
-            <motion.div variants={staggerContainer} className="flex items-center justify-between py-8 border-y border-slate-100">
+            {/* Stats / Status Row */}
+            <motion.div variants={staggerContainer} className="flex items-center justify-between py-6 border-y border-slate-100 max-w-lg">
               {stats.map((stat, idx) => (
                 <React.Fragment key={idx}>
                   <motion.div variants={fadeUp} className="text-center sm:text-left space-y-1">
@@ -164,7 +148,7 @@ const WhyChooseUs = () => {
               ))}
             </motion.div>
 
-            {/* Structured Checklist */}
+            {/* Structured Checklist (Points) */}
             <motion.ul variants={staggerContainer} className="space-y-5">
               {benefits.map((benefit, idx) => (
                 <motion.li key={idx} variants={fadeUp} className="flex items-start gap-4">
@@ -180,7 +164,7 @@ const WhyChooseUs = () => {
             </motion.ul>
 
             {/* CTA Button */}
-            <motion.div variants={fadeUp} className="pt-6">
+            <motion.div variants={fadeUp} className="pt-4">
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
