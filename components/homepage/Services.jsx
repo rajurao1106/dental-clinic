@@ -114,11 +114,11 @@ const Services = () => {
         {/* Repeating items to create a seamless loop */}
         {[...marqueeItems, ...marqueeItems, ...marqueeItems].map(
           (item, index) => (
-            <div key={index} className="flex items-center mx-8">
-              <span className="text-blue-50 font-semibold text-lg tracking-wide mr-8">
+            <div key={index} className="flex items-center mx-4 md:mx-8">
+              <span className="text-blue-50 font-semibold text-base md:text-lg tracking-wide mr-4 md:mr-8">
                 {item}
               </span>
-              <ToothIcon className="w-5 h-5 text-blue-200 opacity-80" />
+              <ToothIcon className="w-4 h-4 md:w-5 md:h-5 text-blue-200 opacity-80" />
             </div>
           ),
         )}
@@ -127,7 +127,7 @@ const Services = () => {
   );
 
   return (
-    <section id="services" className="bg-slate-50 flex flex-col relative">
+    <section id="services" className="bg-slate-50 flex flex-col relative overflow-hidden">
       {/* Inline styles for the marquee animation */}
       <style>{`
         @keyframes marquee {
@@ -146,29 +146,29 @@ const Services = () => {
       {/* Top Marquee */}
       <MarqueeBanner />
 
-      <div className="max-w-7xl mx-auto px-8 py-24 w-full">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 w-full">
         {/* Header Section */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+          className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6"
         >
-          <div className="space-y-4">
-            <h3 className="text-sm font-extrabold tracking-[0.2em] text-blue-600 uppercase flex items-center gap-2">
+          <div className="space-y-4 text-center md:text-left">
+            <h3 className="text-sm font-extrabold tracking-[0.2em] text-blue-600 uppercase flex items-center justify-center md:justify-start gap-2">
               <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
               Our Dental Services
             </h3>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
-              Advanced Treatments <br />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
+              Advanced Treatments <br className="hidden sm:block" />
               <span className="text-blue-600">for Your Best Smile</span>
             </h2>
           </div>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 bg-slate-900 text-white px-8 py-3.5 rounded-full font-semibold shadow-md whitespace-nowrap"
+            className="flex items-center justify-center gap-2 bg-slate-900 text-white px-8 py-3.5 rounded-full font-semibold shadow-md whitespace-nowrap w-full md:w-auto"
           >
             View All Services
             <ArrowRight size={18} />
@@ -181,21 +181,21 @@ const Services = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
           {services.map((service, idx) => (
             <motion.div
               key={idx}
               variants={fadeUp}
               whileHover={{ y: -8 }}
-              className={`group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-500 flex flex-col cursor-pointer ${
-                service.isActive ? "   ring-4 ring-blue-50" : ""
+              className={`group bg-white rounded-[2rem] md:rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-500 flex flex-col cursor-pointer ${
+                service.isActive ? "ring-4 ring-blue-50" : ""
               }`}
             >
               {/* Added a relative wrapper so icon isn't clipped by image's overflow-hidden */}
               <div className="relative">
                 {/* Card Image area */}
-                <div className="relative h-60 bg-slate-200 overflow-hidden">
+                <div className="relative h-52 md:h-60 bg-slate-200 overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -206,17 +206,17 @@ const Services = () => {
                 </div>
 
                 {/* Overlapping Icon Badge (Now outside the overflow-hidden container) */}
-                <div className="absolute -bottom-8 left-6 w-16 h-16 bg-blue-600 rounded-2xl rotate-3 group-hover:rotate-0 transition-transform duration-300 flex items-center justify-center border-4 border-white shadow-lg z-10">
-                  <service.icon size={26} className="text-white" />
+                <div className="absolute -bottom-8 left-6 w-14 h-14 md:w-16 md:h-16 bg-blue-600 rounded-xl md:rounded-2xl rotate-3 group-hover:rotate-0 transition-transform duration-300 flex items-center justify-center border-4 border-white shadow-lg z-10">
+                  <service.icon size={24} className="text-white md:w-[26px] md:h-[26px]" />
                 </div>
               </div>
 
               {/* Card Content */}
-              <div className="pt-14 pb-8 px-8 flex-1 flex flex-col">
-                <h4 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+              <div className="pt-12 pb-6 px-6 md:pt-14 md:pb-8 md:px-8 flex-1 flex flex-col">
+                <h4 className="text-lg md:text-xl font-bold text-slate-900 mb-2 md:mb-3 group-hover:text-blue-600 transition-colors">
                   {service.title}
                 </h4>
-                <p className="text-slate-600 text-sm leading-relaxed mb-8 flex-1">
+                <p className="text-slate-600 text-sm leading-relaxed mb-6 md:mb-8 flex-1">
                   {service.description}
                 </p>
                 <div

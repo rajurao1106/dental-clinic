@@ -56,11 +56,11 @@ const WhyChooseUs = () => {
   };
 
   return (
-    <section id='why-choose-us' className="py-24 px-8 bg-white overflow-hidden relative">
+    <section id='why-choose-us' className="py-16 md:py-24 px-4 md:px-8 bg-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
         
         {/* Main Content Split */}
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
           
           {/* Left Side: Portrait Image Area */}
           <motion.div 
@@ -68,18 +68,18 @@ const WhyChooseUs = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={scaleIn}
-            className="relative w-full max-w-md mx-auto flex-1"
+            className="relative w-full max-w-[85%] sm:max-w-md mx-auto flex-1 mt-4 lg:mt-0"
           >
             {/* Decorative Dashed Frame (Top Right) */}
             <motion.div 
               initial={{ opacity: 0, x: -20, y: 20 }}
               whileInView={{ opacity: 0.5, x: 0, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="absolute -top-6 -right-6 w-full h-full rounded-3xl border-[3px] border-blue-600 border-dashed z-0"
+              className="absolute -top-4 -right-4 md:-top-6 md:-right-6 w-full h-full rounded-3xl border-[3px] border-blue-600 border-dashed z-0"
             />
             
             {/* Outer Gray Frame */}
-            <div className="relative z-10 p-3 rounded-3xl border border-slate-100 bg-white shadow-xl shadow-slate-200/50">
+            <div className="relative z-10 p-2 sm:p-3 rounded-3xl border border-slate-100 bg-white shadow-xl shadow-slate-200/50">
               {/* Inner Portrait Image Container */}
               <div className="relative rounded-2xl overflow-hidden aspect-[3/4] bg-slate-100 group cursor-pointer">
                 <img 
@@ -101,9 +101,9 @@ const WhyChooseUs = () => {
                 repeat: Infinity, 
                 ease: "easeInOut" 
               }}
-              className="absolute -bottom-6 -left-8 z-20 text-blue-600"
+              className="absolute -bottom-4 -left-6 md:-bottom-6 md:-left-8 z-20 text-blue-600"
             >
-              <Sparkles size={80} className="fill-blue-100 text-blue-600" />
+              <Sparkles className="w-16 h-16 md:w-20 md:h-20 fill-blue-100 text-blue-600" />
             </motion.div>
           </motion.div>
 
@@ -113,27 +113,27 @@ const WhyChooseUs = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="flex-1 w-full space-y-8"
+            className="flex-1 w-full space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left"
           >
             {/* Title Section (Moved from top) */}
-            <motion.div variants={fadeUp} className="space-y-4">
-              <h3 className="text-sm font-extrabold tracking-[0.2em] text-blue-600 uppercase flex items-center gap-2">
-                <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
+            <motion.div variants={fadeUp} className="space-y-4 flex flex-col items-center lg:items-start">
+              <h3 className="text-xs sm:text-sm font-extrabold tracking-[0.2em] text-blue-600 uppercase flex items-center gap-2">
+                <span className="w-6 sm:w-8 h-0.5 bg-blue-600 rounded-full"></span>
                 Why Choose Us
               </h3>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
                 Why Patients Trust <br className="hidden md:block" />
                 <span className="text-blue-600">Sikarwar Dental Hospital</span>
               </h2>
             </motion.div>
 
             {/* Description */}
-            <motion.p variants={fadeUp} className="text-slate-600 text-lg leading-relaxed max-w-lg">
+            <motion.p variants={fadeUp} className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-lg">
               We combine clinical expertise, modern technology, and a patient-first approach to deliver exceptional dental results in a safe and comfortable environment.
             </motion.p>
 
             {/* Stats / Status Row */}
-            <motion.div variants={staggerContainer} className="flex items-center justify-between py-6 border-y border-slate-100 max-w-lg">
+            <motion.div variants={staggerContainer} className="flex flex-wrap items-center justify-center sm:justify-between gap-6 sm:gap-0 py-6 border-y border-slate-100 w-full max-w-lg">
               {stats.map((stat, idx) => (
                 <React.Fragment key={idx}>
                   <motion.div variants={fadeUp} className="text-center sm:text-left space-y-1">
@@ -149,26 +149,26 @@ const WhyChooseUs = () => {
             </motion.div>
 
             {/* Structured Checklist (Points) */}
-            <motion.ul variants={staggerContainer} className="space-y-5">
+            <motion.ul variants={staggerContainer} className="space-y-4 sm:space-y-5 w-full max-w-lg text-left">
               {benefits.map((benefit, idx) => (
-                <motion.li key={idx} variants={fadeUp} className="flex items-start gap-4">
+                <motion.li key={idx} variants={fadeUp} className="flex items-start gap-3 sm:gap-4">
                   <div className="mt-1 bg-blue-50 p-1 rounded-full">
-                    <CheckCircle2 size={22} className="text-blue-600 fill-blue-600 text-white flex-shrink-0" />
+                    <CheckCircle2 className="w-[20px] h-[20px] sm:w-[22px] sm:h-[22px] text-blue-600 fill-blue-600 sm:text-white flex-shrink-0" />
                   </div>
                   <div>
-                    <h5 className="text-base font-bold text-slate-900">{benefit.title}</h5>
-                    <p className="text-sm font-medium text-slate-500 mt-1">{benefit.description}</p>
+                    <h5 className="text-sm sm:text-base font-bold text-slate-900">{benefit.title}</h5>
+                    <p className="text-xs sm:text-sm font-medium text-slate-500 mt-0.5 sm:mt-1">{benefit.description}</p>
                   </div>
                 </motion.li>
               ))}
             </motion.ul>
 
             {/* CTA Button */}
-            <motion.div variants={fadeUp} className="pt-4">
+            <motion.div variants={fadeUp} className="pt-4 w-full sm:w-auto">
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-full text-base font-bold shadow-md shadow-blue-600/20"
+                className="flex items-center justify-center gap-2 bg-blue-600 text-white w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-bold shadow-md shadow-blue-600/20"
               >
                 Book an Appointment
                 <ArrowRight size={18} />

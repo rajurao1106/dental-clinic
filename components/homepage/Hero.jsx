@@ -46,23 +46,23 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative bg-slate-50 py-16 px-8 overflow-hidden">
+    <section id="hero" className="relative bg-slate-50 py-12 md:py-16 px-4 md:px-8 overflow-hidden">
       {/* Content Container */}
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center ">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
         {/* Left Side: Text Content */}
         <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="flex-1 space-y-6 z-10 "
+          className="flex-1 space-y-6 z-10 flex flex-col items-center text-center lg:items-start lg:text-left"
         >
           {/* Trust Badge */}
           <motion.div
             variants={fadeUp}
             className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border border-blue-100"
           >
-            <span className="text-blue-600">🦷</span>
-            <span className="text-sm font-semibold text-blue-900">
+            
+            <span className="text-xs sm:text-sm font-semibold text-blue-900">
               Advanced Dental Care with Precision, Comfort & Trust
             </span>
           </motion.div>
@@ -70,7 +70,7 @@ const Hero = () => {
           {/* Main Headline */}
           <motion.h1
             variants={fadeUp}
-            className="text-5xl  md:text-6xl font-bold text-slate-900 leading-tight tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tight"
           >
             Best <span className="text-blue-600">Dental Hospital</span> &
             Implant Center in Raipur
@@ -80,7 +80,7 @@ const Hero = () => {
           {/* Supporting Text */}
           <motion.p
             variants={fadeUp}
-            className="text-slate-600 max-w-lg text-lg leading-relaxed"
+            className="text-slate-600 max-w-lg text-base md:text-lg leading-relaxed"
           >
             At <strong>Sikarwar Dental Hospital & Implant Center</strong>, we
             believe every smile deserves expert care. Since 2011, we have been
@@ -91,31 +91,22 @@ const Hero = () => {
           {/* Call to Actions */}
           <motion.div
             variants={fadeUp}
-            className="flex flex-wrap items-center gap-4 pt-2"
+            className="flex flex-col sm:flex-row items-center gap-4 pt-2 w-full lg:w-auto"
           >
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 bg-blue-600 text-white px-8 py-3.5 rounded-full font-semibold shadow-md shadow-blue-600/20"
+              className="flex items-center justify-center gap-2 bg-blue-600 text-white w-full sm:w-auto px-8 py-3.5 rounded-full font-semibold shadow-md shadow-blue-600/20"
             >
               Book Your Consultation Today
               <ArrowRight size={18} />
             </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 font-semibold text-slate-700 hover:text-blue-600 transition-colors px-4 py-3 group"
-            >
-              <span className="p-2.5 bg-white rounded-full shadow-sm border border-slate-100 group-hover:bg-blue-50 transition-colors">
-                <Play size={16} className="fill-blue-600 text-blue-600" />
-              </span>
-              Clinic Tour
-            </motion.button>
+           
           </motion.div>
         </motion.div>
 
         {/* Right Side: Image with Background Blob */}
-        <div className="relative flex-1 w-full flex justify-center">
+        <div className="relative flex-1 w-full flex justify-center mt-8 lg:mt-0">
           {/* Animated Background Blobs */}
           <motion.div
             animate={{
@@ -141,7 +132,7 @@ const Hero = () => {
             variants={imageReveal}
             src="/homepage/hero.png"
             alt="Dr. Sunny Sikarwar - Best Dentist in Raipur"
-            className="relative z-10 w-full object-contain drop-shadow-2xl"
+            className="relative z-10 w-full max-w-md lg:max-w-none object-contain drop-shadow-2xl"
           />
         </div>
       </div>
@@ -151,11 +142,11 @@ const Hero = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-20 max-w-6xl mx-auto  bg-white p-4 md:p-6 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col lg:flex-row gap-4 lg:gap-6 items-end"
+        className="relative z-20 max-w-6xl mx-auto mt-12 lg:mt-0 bg-white p-4 md:p-6 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col lg:flex-row gap-4 lg:gap-6 items-stretch lg:items-end"
       >
-        <div className="w-full flex flex-col md:flex-row gap-4 lg:gap-6">
+        <div className="w-full flex flex-col lg:flex-row gap-4 lg:gap-6">
           {/* Name Field */}
-          <div className="flex-1 border-b md:border-b-0 md:border-r border-slate-100 pb-4 md:pb-0 md:pr-4 group">
+          <div className="flex-1 border-b lg:border-b-0 lg:border-r border-slate-100 pb-4 lg:pb-0 lg:pr-4 group">
             <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block group-focus-within:text-blue-500 transition-colors">
               Patient Name
             </label>
@@ -170,7 +161,7 @@ const Hero = () => {
           </div>
 
           {/* Phone Field */}
-          <div className="flex-1 border-b md:border-b-0 md:border-r border-slate-100 pb-4 md:pb-0 md:pr-4 group">
+          <div className="flex-1 border-b lg:border-b-0 lg:border-r border-slate-100 pb-4 lg:pb-0 lg:pr-4 group">
             <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block group-focus-within:text-blue-500 transition-colors">
               Phone Number
             </label>
@@ -185,7 +176,7 @@ const Hero = () => {
           </div>
 
           {/* Date Field */}
-          <div className="flex-1 border-b md:border-b-0 md:border-r border-slate-100 pb-4 md:pb-0 md:pr-4 group">
+          <div className="flex-1 border-b lg:border-b-0 lg:border-r border-slate-100 pb-4 lg:pb-0 lg:pr-4 group">
             <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block group-focus-within:text-blue-500 transition-colors">
               Preferred Date
             </label>
@@ -199,7 +190,7 @@ const Hero = () => {
           </div>
 
           {/* Time Field */}
-          <div className="flex-1 pb-4 md:pb-0 md:pr-4 group">
+          <div className="flex-1 pb-4 lg:pb-0 lg:pr-4 group">
             <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block group-focus-within:text-blue-500 transition-colors">
               Preferred Time
             </label>
@@ -217,7 +208,7 @@ const Hero = () => {
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="w-full lg:w-auto bg-slate-900 text-white px-8 py-4 rounded-xl font-bold shadow-md"
+          className="w-full lg:w-auto bg-slate-900 text-white px-8 py-4 rounded-xl font-bold shadow-md whitespace-nowrap"
         >
           Request Appointment
         </motion.button>

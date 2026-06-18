@@ -41,7 +41,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="bg-[#0b1a33] py-24 px-8 flex flex-col items-center relative overflow-hidden">
+    <section className="bg-[#0b1a33] py-16 md:py-24 px-4 md:px-8 flex flex-col items-center relative overflow-hidden">
       
       {/* Ambient Background Blobs */}
       <motion.div 
@@ -50,7 +50,7 @@ const Testimonials = () => {
           opacity: [0.1, 0.2, 0.1] 
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -top-32 -left-32 w-96 h-96 bg-blue-600 rounded-full blur-[100px] z-0 pointer-events-none"
+        className="absolute -top-16 -left-16 md:-top-32 md:-left-32 w-64 h-64 md:w-96 md:h-96 bg-blue-600 rounded-full blur-[100px] z-0 pointer-events-none"
       />
       <motion.div 
         animate={{ 
@@ -58,7 +58,7 @@ const Testimonials = () => {
           opacity: [0.05, 0.15, 0.05] 
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute -bottom-32 -right-32 w-96 h-96 bg-teal-500 rounded-full blur-[100px] z-0 pointer-events-none"
+        className="absolute -bottom-16 -right-16 md:-bottom-32 md:-right-32 w-64 h-64 md:w-96 md:h-96 bg-teal-500 rounded-full blur-[100px] z-0 pointer-events-none"
       />
 
       {/* Header */}
@@ -67,12 +67,12 @@ const Testimonials = () => {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={fadeUp}
-        className="text-center mb-16 space-y-4 z-10"
+        className="text-center mb-12 md:mb-16 space-y-3 md:space-y-4 z-10 px-4"
       >
-        <h3 className="text-sm font-bold tracking-[0.2em] text-gray-400 uppercase">
+        <h3 className="text-xs sm:text-sm font-bold tracking-[0.2em] text-gray-400 uppercase">
           Testimonials
         </h3>
-        <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
           What Our <span className="text-blue-500">Patients</span> Have to Say
         </h2>
       </motion.div>
@@ -83,26 +83,25 @@ const Testimonials = () => {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
-        className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 w-full z-10"
+        className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full z-10"
       >
         {testimonials.map((t) => (
           <motion.div 
             key={t.id} 
             variants={fadeUp}
             whileHover={{ y: -8 }}
-            className="bg-white rounded-3xl p-8 relative overflow-hidden flex flex-col shadow-xl cursor-grab active:cursor-grabbing"
+            className="bg-white rounded-[2rem] md:rounded-3xl p-6 md:p-8 relative overflow-hidden flex flex-col shadow-xl cursor-grab active:cursor-grabbing"
           >
             {/* Background Quote Watermark */}
             <Quote 
-              size={140} 
-              className="absolute -right-6 -bottom-6 text-gray-50 opacity-60 rotate-12 fill-gray-50 transition-transform duration-500 hover:rotate-0 hover:scale-110" 
+              className="absolute -right-4 -bottom-4 md:-right-6 md:-bottom-6 w-24 h-24 md:w-[140px] md:h-[140px] text-gray-50 opacity-60 rotate-12 fill-gray-50 transition-transform duration-500 hover:rotate-0 hover:scale-110" 
             />
 
             {/* Card Content */}
             <div className="relative z-10 flex flex-col h-full pointer-events-none">
               
               {/* Rating */}
-              <div className="flex items-center gap-2 mb-6">
+              <div className="flex items-center gap-2 mb-4 md:mb-6">
                 <div className="flex text-yellow-400 gap-1">
                   {[...Array(5)].map((_, i) => (
                     <motion.div
@@ -112,7 +111,7 @@ const Testimonials = () => {
                       viewport={{ once: true }}
                       transition={{ delay: 0.3 + (i * 0.1), type: 'spring', stiffness: 200 }}
                     >
-                      <Star size={20} fill="currentColor" strokeWidth={0} />
+                      <Star className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" strokeWidth={0} />
                     </motion.div>
                   ))}
                 </div>
@@ -120,21 +119,21 @@ const Testimonials = () => {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.8 }}
-                  className="font-bold text-gray-900 text-sm ml-1"
+                  className="font-bold text-gray-900 text-sm md:text-base ml-1"
                 >
                   {t.rating.toFixed(1)}
                 </motion.span>
               </div>
 
-              <h4 className="text-lg font-bold text-gray-900 mb-4">{t.title}</h4>
+              <h4 className="text-base md:text-lg font-bold text-gray-900 mb-3 md:mb-4">{t.title}</h4>
               
-              <p className="text-gray-500 text-sm leading-relaxed mb-8 flex-1">
+              <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-6 md:mb-8 flex-1">
                 {t.text}
               </p>
 
               {/* Author Profile */}
-              <div className="flex items-center gap-4 mt-auto">
-                <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200 border-2 border-white shadow-sm flex-shrink-0">
+              <div className="flex items-center gap-3 md:gap-4 mt-auto">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden bg-gray-200 border-2 border-white shadow-sm flex-shrink-0">
                   <img
                     src={t.avatar}
                     alt={t.author}
@@ -142,8 +141,8 @@ const Testimonials = () => {
                   />
                 </div>
                 <div>
-                  <h5 className="font-bold text-gray-900 text-sm">{t.author}</h5>
-                  <p className="text-xs text-gray-400 font-medium">{t.role}</p>
+                  <h5 className="font-bold text-gray-900 text-xs md:text-sm">{t.author}</h5>
+                  <p className="text-[10px] md:text-xs text-gray-400 font-medium">{t.role}</p>
                 </div>
               </div>
               
@@ -158,7 +157,7 @@ const Testimonials = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ delay: 0.4 }}
-        className="flex items-center justify-center gap-2 mt-14 z-10"
+        className="flex items-center justify-center gap-1.5 md:gap-2 mt-10 md:mt-14 z-10"
       >
         {[true, false, false, false, false].map((isActive, idx) => (
           <motion.div 
@@ -166,7 +165,7 @@ const Testimonials = () => {
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
             className={`h-1.5 rounded-full cursor-pointer transition-colors duration-300 ${
-              isActive ? 'w-8 bg-blue-600' : 'w-8 bg-white/20 hover:bg-white/40'
+              isActive ? 'w-6 sm:w-8 bg-blue-600' : 'w-6 sm:w-8 bg-white/20 hover:bg-white/40'
             }`}
           />
         ))}
