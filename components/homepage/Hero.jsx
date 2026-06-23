@@ -114,7 +114,7 @@ const Hero = () => {
             variants={imageReveal}
             src="/homepage/hero.png"
             alt="Dr. Sunny Sikarwar - Best Dentist in Raipur"
-            className="relative z-10 w-full max-w-md lg:max-w-[500px] object-cover rounded-2xl shadow-sm drop-shadow-xl"
+            className="relative z-10 w-full max-w-md lg:max-w-[500px] object-cover rounded-2xl "
           />
         </div>
       </div>
