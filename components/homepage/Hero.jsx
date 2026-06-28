@@ -5,14 +5,64 @@ import { User, Phone, Calendar, Clock, ArrowRight, X } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
-  // Modal State
+  // Modal & Form States
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [inlineStatus, setInlineStatus] = useState("");
+  const [modalStatus, setModalStatus] = useState("");
 
-  // Form Submit Handler
-  const handleSubmit = (e) => {
+  // Form Submit Handler for the Quick Inline Form
+  const handleInlineSubmit = async (e) => {
     e.preventDefault();
-    alert("Appointment Request Submitted Successfully!");
-    setIsModalOpen(false);
+    setInlineStatus("Sending...");
+    
+    const formData = new FormData(e.target);
+    formData.append("access_key", "242d73d3-759b-4548-9450-5c1de3e34dbd"); // Replace with your key
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        setInlineStatus("Success!");
+        e.target.reset();
+        setTimeout(() => setInlineStatus(""), 4000); // Clear message after 4s
+      } else {
+        setInlineStatus("Error. Try again.");
+      }
+    } catch (error) {
+      setInlineStatus("Error connecting.");
+    }
+  };
+
+  // Form Submit Handler for the Modal
+  const handleModalSubmit = async (e) => {
+    e.preventDefault();
+    setModalStatus("Sending...");
+    
+    const formData = new FormData(e.target);
+    formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY"); // Replace with your key
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        setModalStatus("");
+        alert("Appointment Request Submitted Successfully!");
+        setIsModalOpen(false);
+        e.target.reset();
+      } else {
+        setModalStatus("Error submitting form.");
+      }
+    } catch (error) {
+      setModalStatus("Connection error.");
+    }
   };
 
   // Refined, smoother Animation Variants
@@ -131,12 +181,13 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Quick Appointment Form Bar */}
-        <motion.div
+        {/* Quick Appointment Form Bar (Converted to a <form>) */}
+        <motion.form
+          onSubmit={handleInlineSubmit}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-20 max-w-6xl mx-auto mt-16 bg-white p-5 md:p-6 rounded-2xl shadow-md border border-slate-200 flex flex-col lg:flex-row gap-5 items-stretch lg:items-end"
+          className="relative z-20 max-w-6xl mx-auto mt-16 bg-white p-5 md:p-6 rounded-2xl shadow-md border border-slate-200 flex flex-col lg:flex-row gap-5 items-stretch lg:items-center"
         >
           <div className="w-full flex flex-col lg:flex-row gap-5">
             {/* Name Field */}
@@ -148,6 +199,8 @@ const Hero = () => {
                 <User size={18} className="text-slate-400 group-focus-within:text-blue-600 transition-colors" />
                 <input
                   type="text"
+                  name="name"
+                  required
                   placeholder="John Doe"
                   className="w-full outline-none text-sm font-medium focus:ring-0 py-1 transition-all bg-transparent placeholder:text-slate-300"
                 />
@@ -163,6 +216,8 @@ const Hero = () => {
                 <Phone size={18} className="text-slate-400 group-focus-within:text-blue-600 transition-colors" />
                 <input
                   type="tel"
+                  name="phone"
+                  required
                   placeholder="+91 00000 00000"
                   className="w-full outline-none text-sm font-medium focus:ring-0 py-1 transition-all bg-transparent placeholder:text-slate-300"
                 />
@@ -178,6 +233,8 @@ const Hero = () => {
                 <Calendar size={18} className="text-slate-400 group-focus-within:text-blue-600 shrink-0 transition-colors" />
                 <input
                   type="date"
+                  name="date"
+                  required
                   className="w-full outline-none text-sm font-medium focus:ring-0 py-1 transition-all bg-transparent text-slate-700 cursor-pointer"
                 />
               </div>
@@ -192,24 +249,29 @@ const Hero = () => {
                 <Clock size={18} className="text-slate-400 group-focus-within:text-blue-600 shrink-0 transition-colors" />
                 <input
                   type="time"
+                  name="time"
+                  required
                   className="w-full outline-none text-sm font-medium focus:ring-0 py-1 transition-all bg-transparent text-slate-700 cursor-pointer"
                 />
               </div>
             </div>
           </div>
 
-          {/* Submit Button */}
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="w-full lg:w-auto bg-slate-900 hover:bg-slate-800 text-white px-8 py-3.5 rounded-lg text-sm font-medium shadow-sm transition-colors whitespace-nowrap"
-          >
-            Request Appointment
-          </motion.button>
-        </motion.div>
+          {/* Submit Button & Status */}
+          <div className="flex flex-col items-center gap-2 w-full lg:w-auto shrink-0">
+            <motion.button
+              type="submit"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full lg:w-auto bg-slate-900 hover:bg-slate-800 text-white px-8 py-3.5 rounded-lg text-sm font-medium shadow-sm transition-colors whitespace-nowrap"
+            >
+              {inlineStatus || "Request Appointment"}
+            </motion.button>
+          </div>
+        </motion.form>
       </section>
 
-      {/* Appointment Modal Popup (Copied directly from Navbar) */}
+      {/* Appointment Modal Popup */}
       {isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
           {/* Modal Container */}
@@ -230,11 +292,12 @@ const Hero = () => {
             </div>
 
             {/* Modal Form */}
-            <form onSubmit={handleSubmit} className="p-6 space-y-5">
+            <form onSubmit={handleModalSubmit} className="p-6 space-y-5">
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">Full Name</label>
                 <input 
                   type="text" 
+                  name="name"
                   required 
                   className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 placeholder:text-slate-400" 
                   placeholder="John Doe" 
@@ -245,6 +308,7 @@ const Hero = () => {
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">Phone Number</label>
                 <input 
                   type="tel" 
+                  name="phone"
                   required 
                   className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 placeholder:text-slate-400" 
                   placeholder="+91 98765 43210" 
@@ -253,7 +317,7 @@ const Hero = () => {
 
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">Select Service</label>
-                <select className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 bg-white">
+                <select name="service" required className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 bg-white">
                   <option value="">General Consultation</option>
                   <option value="implants">Dental Implants</option>
                   <option value="root-canal">Root Canal Treatment</option>
@@ -266,6 +330,7 @@ const Hero = () => {
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">Preferred Date</label>
                 <input 
                   type="date" 
+                  name="date"
                   required 
                   className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900" 
                 />
@@ -274,9 +339,10 @@ const Hero = () => {
               <div className="pt-2">
                 <button 
                   type="submit" 
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all shadow-sm"
+                  disabled={modalStatus === "Sending..."}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all shadow-sm disabled:bg-blue-400 disabled:cursor-not-allowed"
                 >
-                  Confirm Booking
+                  {modalStatus || "Confirm Booking"}
                 </button>
               </div>
             </form>

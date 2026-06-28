@@ -6,6 +6,7 @@ import { Stethoscope, X, Menu } from 'lucide-react';
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [status, setStatus] = useState("");
 
   const navLinks = [
     { name: 'Home', href: '#hero' }, 
@@ -15,10 +16,33 @@ const Navbar = () => {
     { name: 'Contact Us', href: '#contact' },
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Appointment Request Submitted Successfully!");
-    setIsModalOpen(false);
+    setStatus("Sending...");
+
+    const formData = new FormData(e.target);
+    // REPLACE THIS with your actual Web3Forms Access Key
+    formData.append("access_key", "242d73d3-759b-4548-9450-5c1de3e34dbd");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("");
+        alert("Appointment Request Submitted Successfully!");
+        setIsModalOpen(false);
+        e.target.reset();
+      } else {
+        setStatus("Error submitting form.");
+      }
+    } catch (error) {
+      setStatus("Connection error.");
+    }
   };
 
   return (
@@ -122,6 +146,7 @@ const Navbar = () => {
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">Full Name</label>
                 <input 
                   type="text" 
+                  name="name"
                   required 
                   className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 placeholder:text-slate-400" 
                   placeholder="John Doe" 
@@ -132,6 +157,7 @@ const Navbar = () => {
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">Phone Number</label>
                 <input 
                   type="tel" 
+                  name="phone"
                   required 
                   className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 placeholder:text-slate-400" 
                   placeholder="+91 98765 43210" 
@@ -140,7 +166,7 @@ const Navbar = () => {
 
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">Select Service</label>
-                <select className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 bg-white">
+                <select name="service" required className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 bg-white">
                   <option value="">General Consultation</option>
                   <option value="implants">Dental Implants</option>
                   <option value="root-canal">Root Canal Treatment</option>
@@ -153,6 +179,7 @@ const Navbar = () => {
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">Preferred Date</label>
                 <input 
                   type="date" 
+                  name="date"
                   required 
                   className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900" 
                 />
@@ -161,9 +188,10 @@ const Navbar = () => {
               <div className="pt-2">
                 <button 
                   type="submit" 
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all shadow-sm"
+                  disabled={status === "Sending..."}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all shadow-sm disabled:bg-blue-400 disabled:cursor-not-allowed"
                 >
-                  Confirm Booking
+                  {status || "Confirm Booking"}
                 </button>
               </div>
             </form>

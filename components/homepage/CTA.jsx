@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { PhoneCall, ArrowRight, CalendarClock } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -21,14 +21,47 @@ const ToothIcon = ({ className }) => (
 );
 
 const Booking = () => {
+  const [result, setResult] = useState("");
+
   const marqueeItems = [
     "Dental Implants",
-    "Teeth in 72 Hours",
+    "Teeth in 24 Hours",
     "Root Canal Treatment",
     "Oral & Maxillofacial Surgery",
     "Smile Designing",
     "Braces & Aligners",
   ];
+
+  // Web3Forms Submit Handler
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending...");
+    
+    const formData = new FormData(event.target);
+    
+    // REPLACE THIS with your actual Web3Forms Access Key
+    formData.append("access_key", "242d73d3-759b-4548-9450-5c1de3e34dbd");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Form Submitted Successfully!");
+        event.target.reset();
+      } else {
+        console.log("Error", data);
+        setResult(data.message);
+      }
+    } catch (error) {
+      console.log("Error", error);
+      setResult("An error occurred. Please try again.");
+    }
+  };
 
   // Smoother Animation Variants
   const fadeUp = {
@@ -115,6 +148,7 @@ const Booking = () => {
             </motion.div>
 
             <motion.form
+              onSubmit={onSubmit}
               variants={staggerContainer}
               className="space-y-5 md:space-y-6"
             >
@@ -127,6 +161,7 @@ const Booking = () => {
                   </label>
                   <input
                     type="text"
+                    name="name"
                     placeholder="Ex. John Doe"
                     className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all font-medium text-slate-900 placeholder:text-slate-400"
                     required
@@ -139,6 +174,7 @@ const Booking = () => {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
                     placeholder="+91 00000 00000"
                     className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all font-medium text-slate-900 placeholder:text-slate-400"
                     required
@@ -150,6 +186,7 @@ const Booking = () => {
                     Treatment Needed *
                   </label>
                   <select
+                    name="treatment"
                     className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all cursor-pointer font-medium text-slate-800"
                     required
                     defaultValue=""
@@ -159,7 +196,7 @@ const Booking = () => {
                     </option>
                     <option value="general">General Checkup / Cleaning</option>
                     <option value="implants">Dental Implants</option>
-                    <option value="72hours">Teeth in 72 Hours</option>
+                    <option value="24hours">Teeth in 24 Hours</option>
                     <option value="root-canal">Root Canal Treatment</option>
                     <option value="surgery">
                       Oral & Maxillofacial Surgery
@@ -174,6 +211,7 @@ const Booking = () => {
                     Preferred Doctor *
                   </label>
                   <select
+                    name="preferred_doctor"
                     className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all cursor-pointer font-medium text-slate-800"
                     required
                     defaultValue="dr-sunny"
@@ -189,6 +227,7 @@ const Booking = () => {
                   </label>
                   <input
                     type="date"
+                    name="date"
                     className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 font-medium outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all cursor-pointer"
                     required
                   />
@@ -200,6 +239,7 @@ const Booking = () => {
                   </label>
                   <input
                     type="time"
+                    name="time"
                     className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 font-medium outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all cursor-pointer"
                     required
                   />
@@ -212,22 +252,30 @@ const Booking = () => {
                   Describe Your Dental Problem (Optional)
                 </label>
                 <textarea
+                  name="message"
                   rows="3"
                   placeholder="Tell us what you need help with..."
                   className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none font-medium text-slate-900 placeholder:text-slate-400"
                 ></textarea>
               </motion.div>
 
-              <motion.button
-                variants={fadeUp}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                className="flex items-center justify-center gap-2 w-full md:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 sm:px-10 py-3.5 rounded-lg text-sm sm:text-base font-semibold shadow-sm transition-colors"
-              >
-                Confirm Appointment
-                <ArrowRight size={18} />
-              </motion.button>
+              <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center gap-4">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  type="submit"
+                  className="flex items-center justify-center gap-2 w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 sm:px-10 py-3.5 rounded-lg text-sm sm:text-base font-semibold shadow-sm transition-colors"
+                >
+                  Confirm Appointment
+                  <ArrowRight size={18} />
+                </motion.button>
+                {/* Result Message Display */}
+                {result && (
+                  <span className="text-sm font-medium text-slate-700">
+                    {result}
+                  </span>
+                )}
+              </motion.div>
             </motion.form>
           </motion.div>
 
