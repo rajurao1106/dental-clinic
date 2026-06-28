@@ -15,13 +15,21 @@ const Hero = () => {
     e.preventDefault();
     setInlineStatus("Sending...");
     
-    const formData = new FormData(e.target);
-    formData.append("access_key", "242d73d3-759b-4548-9450-5c1de3e34dbd"); // Replace with your key
+    const formData = new FormData(e.target); 
+    formData.append("access_key", "242d73d3-759b-4548-9450-5c1de3e34dbd"); 
+
+    // Convert FormData to JSON (Fixes the 400 Bad Request error)
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
       });
       const data = await response.json();
 
@@ -43,12 +51,20 @@ const Hero = () => {
     setModalStatus("Sending...");
     
     const formData = new FormData(e.target);
-    formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY"); // Replace with your key
+    formData.append("access_key", "242d73d3-759b-4548-9450-5c1de3e34dbd"); 
+
+    // Convert FormData to JSON (Fixes the 400 Bad Request error)
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
       });
       const data = await response.json();
 
