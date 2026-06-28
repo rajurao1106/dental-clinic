@@ -12,7 +12,7 @@ const Footer = () => {
   ];
 
   const quickLinks = ['About Us', 'Meet Dr. Sunny Sikarwar', 'Our Services', 'Patient Testimonials', 'Book Appointment'];
-  const treatments = ['Dental Implants', 'Teeth in 72 Hours', 'Root Canal', 'Braces & Aligners', 'Oral & Maxillofacial Surgery'];
+  const treatments = ['Dental Implants', 'Teeth in 24 Hours', 'Root Canal', 'Braces & Aligners', 'Oral & Maxillofacial Surgery'];
 
   return (
     <footer className="bg-slate-900 text-slate-300 pt-20 pb-8 px-8 border-t-[6px] border-blue-600">
