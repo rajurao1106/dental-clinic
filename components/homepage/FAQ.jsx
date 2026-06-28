@@ -188,13 +188,15 @@ const FAQ = () => {
               Our team is ready to provide all the answers you need. We ensure a quick and helpful response.
             </p>
             
-            <motion.button
+          <a href="#contact">
+              <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="bg-white text-blue-600 px-8 py-3 rounded-lg text-sm font-semibold hover:bg-slate-50 transition-colors shadow-sm w-full sm:w-auto"
             >
               Contact Us
             </motion.button>
+          </a>
           </motion.div>
 
           {/* Emergency Card */}
