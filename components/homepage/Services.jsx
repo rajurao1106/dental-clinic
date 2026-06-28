@@ -49,7 +49,7 @@ const Services = () => {
     {
       title: "Teeth in 72 Hours",
       description:
-        "Get fixed teeth in just 72 hours using modern implant-supported rehabilitation and advanced protocols.",
+        "Get fixed teeth in 24 hours using modern implant-supported rehabilitation and advanced protocols.",
       image: "/homepage/service2.jpg",
       icon: Clock,
     },
