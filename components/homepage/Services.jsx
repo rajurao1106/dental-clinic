@@ -31,7 +31,7 @@ const ToothIcon = ({ className }) => (
 const Services = () => {
   const marqueeItems = [
     "Dental Implants",
-    "Teeth in 72 Hours",
+    "Teeth in 24 Hours",
     "Root Canal Treatment",
     "Oral & Maxillofacial Surgery",
     "Smile Designing",
@@ -47,7 +47,7 @@ const Services = () => {
       icon: ShieldPlus,
     },
     {
-      title: "Teeth in 72 Hours",
+      title: "Teeth in 24 Hours",
       description:
         "Get fixed teeth in 24 hours using modern implant-supported rehabilitation and advanced protocols.",
       image: "/homepage/service2.jpg",
