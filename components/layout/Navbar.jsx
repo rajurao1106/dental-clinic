@@ -16,6 +16,22 @@ const Navbar = () => {
     { name: 'Contact Us', href: '#contact' },
   ];
 
+  // Custom scroll handler to prevent URL hash update
+  const handleScroll = (e, href) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+    
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Close mobile menu if open
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
@@ -51,7 +67,11 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 py-3.5">
           
           {/* Logo Section */}
-          <a href="#hero" className="flex items-center gap-3 cursor-pointer group">
+          <a 
+            href="#hero" 
+            onClick={(e) => handleScroll(e, '#hero')}
+            className="flex items-center gap-3 cursor-pointer group"
+          >
             <div className="bg-blue-600 p-2.5 rounded-lg text-white group-hover:bg-blue-700 transition-colors">
               <Stethoscope size={22} strokeWidth={2.5} />
             </div>
@@ -67,7 +87,8 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
+                onClick={(e) => handleScroll(e, link.href)}
+                className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors cursor-pointer"
               >
                 {link.name}
               </a>
@@ -101,8 +122,8 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-colors block px-3 py-3 rounded-md"
+                onClick={(e) => handleScroll(e, link.href)}
+                className="text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-colors block px-3 py-3 rounded-md cursor-pointer"
               >
                 {link.name}
               </a>

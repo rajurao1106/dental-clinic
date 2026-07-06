@@ -1,3 +1,174 @@
+// "use client";
+
+// import React from 'react';
+// import { motion } from 'framer-motion';
+// import { Sparkles, Clock } from 'lucide-react';
+
+// const Transformations = () => {
+//   const transformations = [
+//     {
+//       id: 1,
+//       title: "Full Mouth Rehabilitation",
+//       description: "Restored complete functionality and aesthetics using basal implants and premium Zirconia crowns.",
+//       duration: "Teeth in 72 Hours",
+//       image: "/homepage/dental-implant1.jpeg", 
+//     },
+//     {
+//       id: 2,
+//       title: "Smile Designing (Veneers)",
+//       description: "Corrected spacing and discoloration with custom-crafted porcelain veneers for a natural look.",
+//       duration: "2 Sessions",
+//       image: "/homepage/dental-implant2.jpeg",
+//     },
+//     {
+//       id: 3,
+//       title: "Orthodontic Aligners",
+//       description: "Straightened misaligned teeth comfortably using modern invisible clear aligners.",
+//       duration: "8 Months",
+//       image: "/homepage/dental-implant3.jpeg",
+//     },
+//      {
+//       id: 4,
+//       title: "Orthodontic Aligners",
+//       description: "Straightened misaligned teeth comfortably using modern invisible clear aligners.",
+//       duration: "8 Months",
+//       image: "/homepage/dental-implant4.jpeg",
+//     },
+//      {
+//       id: 5,
+//       title: "Orthodontic Aligners",
+//       description: "Straightened misaligned teeth comfortably using modern invisible clear aligners.",
+//       duration: "8 Months",
+//       image: "/homepage/dental-implant5.jpeg",
+//     },
+//      {
+//       id: 6,
+//       title: "Orthodontic Aligners",
+//       description: "Straightened misaligned teeth comfortably using modern invisible clear aligners.",
+//       duration: "8 Months",
+//       image: "/homepage/dental-implant6.jpeg",
+//     },
+//      {
+//       id: 7,
+//       title: "Orthodontic Aligners",
+//       description: "Straightened misaligned teeth comfortably using modern invisible clear aligners.",
+//       duration: "8 Months",
+//       image: "/homepage/dental-implant7.jpeg",
+//     },
+//      {
+//       id: 8,
+//       title: "Orthodontic Aligners",
+//       description: "Straightened misaligned teeth comfortably using modern invisible clear aligners.",
+//       duration: "8 Months",
+//       image: "/homepage/dental-implant8.jpeg",
+//     },
+//      {
+//       id: 9,
+//       title: "Orthodontic Aligners",
+//       description: "Straightened misaligned teeth comfortably using modern invisible clear aligners.",
+//       duration: "8 Months",
+//       image: "/homepage/dental-implant9.jpeg",
+//     },
+//   ];
+
+//   // Smoother Animation Variants
+//   const fadeUp = {
+//     hidden: { opacity: 0, y: 20 },
+//     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+//   };
+
+//   const staggerContainer = {
+//     hidden: { opacity: 0 },
+//     visible: {
+//       opacity: 1,
+//       transition: { staggerChildren: 0.15, delayChildren: 0.1 }
+//     }
+//   };
+
+//   return (
+//     <section id="transformations" className="bg-slate-50 py-16 md:py-24 px-4 md:px-8 overflow-hidden relative">
+      
+//       {/* Decorative Background Elements */}
+//       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+//         <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] bg-blue-100/50 rounded-full blur-3xl" />
+//         <div className="absolute bottom-[10%] -left-[10%] w-[40%] h-[40%] bg-teal-50/50 rounded-full blur-3xl" />
+//       </div>
+
+//       <div className="max-w-7xl mx-auto relative z-10">
+        
+//         {/* Header Section */}
+//         <motion.div
+//           initial="hidden"
+//           whileInView="visible"
+//           viewport={{ once: true, margin: "-100px" }}
+//           variants={fadeUp}
+//           className="text-center mb-12 md:mb-16 space-y-4"
+//         >
+//           <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 uppercase flex items-center justify-center gap-2">
+//             <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
+//             Real Results
+//             <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
+//           </h3>
+//           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
+//             Our Patient <br className="hidden sm:block" />
+//             <span className="text-blue-600">Smile Transformations</span>
+//           </h2>
+//           <p className="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base font-normal">
+//             See the difference our expert care can make. Swipe through some of our successful dental treatments, from implants to complete smile makeovers.
+//           </p>
+//         </motion.div>
+
+//         {/* Transformations Grid */}
+//         <motion.div 
+//           initial="hidden"
+//           whileInView="visible"
+//           viewport={{ once: true, margin: "-100px" }}
+//           variants={staggerContainer}
+//           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+//         >
+//           {transformations.map((item) => (
+//             <motion.div
+//               key={item.id}
+//               variants={fadeUp}
+//               className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300 group flex flex-col"
+//             >
+//               {/* Single Image View */}
+//               <div className="relative flex w-full aspect-[4/3] bg-slate-100 overflow-hidden">
+//                 <img 
+//                   src={item.image} 
+//                   alt={item.title} 
+//                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+//                 />
+//               </div>
+
+//               {/* Content Area */}
+//               <div className="p-6 flex flex-col flex-1">
+//                 <div className="flex items-start justify-between gap-2 mb-3">
+//                   <h4 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+//                     {item.title}
+//                   </h4>
+//                   <div className="bg-blue-50 text-blue-600 p-1.5 rounded-lg flex-shrink-0">
+//                     <Sparkles size={16} />
+//                   </div>
+//                 </div>
+                
+//                 <p className="text-slate-600 text-sm font-normal leading-relaxed mb-6 flex-1">
+//                   {item.description}
+//                 </p>
+//               </div>
+//             </motion.div>
+//           ))}
+//         </motion.div>
+
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Transformations;
+
+
+
 "use client";
 
 import React from 'react';
@@ -142,29 +313,12 @@ const BeforeAfter = () => {
                   {item.description}
                 </p>
 
-                {/* Footer Info */}
-                <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 bg-slate-50 px-3 py-2 rounded-lg w-fit border border-slate-100">
-                  <Clock size={14} className="text-slate-400" />
-                  {item.duration}
-                </div>
+              
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* View All CTA */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          className="mt-12 md:mt-16 text-center"
-        >
-          <button className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-8 py-3.5 rounded-lg text-sm font-semibold shadow-sm transition-colors">
-            View More Transformations
-            <ArrowRight size={18} />
-          </button>
-        </motion.div>
 
       </div>
     </section>

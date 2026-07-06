@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "sikarwardentalhospital",
   description: "sikarwardentalhospital",
+  verification: {
+    google: "aGVbXo4KoE_9cN0sbHxMkKwleV_KfgsjwRwU1RshvNs",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -24,7 +27,11 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col"><Navbar/>{children}<Footer/></body>
+      <body className="min-h-full flex flex-col">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -129,7 +129,7 @@ const AboutUs = () => {
             ))}
           </motion.ul>
 
-          <motion.div variants={fadeUp} className="pt-2 w-full sm:w-auto">
+          {/* <motion.div variants={fadeUp} className="pt-2 w-full sm:w-auto">
             <motion.button 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -138,7 +138,7 @@ const AboutUs = () => {
               Meet Dr. Sunny Sikarwar
               <ArrowRight size={18} />
             </motion.button>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
 
       </div>

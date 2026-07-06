@@ -77,6 +77,7 @@ const Testimonials = () => {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
           What Our <span className="text-blue-400">Patients</span> Say
         </h2>
+        <p className='text-white'>We take immense pride in the care we provide. Here's what some of our patients and their families have to say about their experiences:</p>
       </motion.div>
 
       {/* Cards Grid */}
