@@ -94,7 +94,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleScroll(e, link.href)}
-                className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors cursor-pointer"
+                className="text-sm font-medium text-slate-600 hover:text-[#2AACDE] transition-colors cursor-pointer"
               >
                 {link.name}
               </a>
@@ -106,7 +106,7 @@ const Navbar = () => {
             {/* Desktop CTA Button */}
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-sm"
+              className="hidden md:block bg-[#2AACDE] hover:bg-[#0548AF] text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-sm"
             >
               Book Consultation
             </button>
@@ -129,7 +129,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleScroll(e, link.href)}
-                className="text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition-colors block px-3 py-3 rounded-md cursor-pointer"
+                className="text-sm font-medium text-slate-700 hover:text-[#2AACDE] hover:bg-slate-50 transition-colors block px-3 py-3 rounded-md cursor-pointer"
               >
                 {link.name}
               </a>
@@ -139,7 +139,7 @@ const Navbar = () => {
                 setIsMobileMenuOpen(false);
                 setIsModalOpen(true);
               }}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 mt-3 rounded-lg text-sm font-semibold transition-all shadow-sm"
+              className="w-full bg-[#2AACDE] hover:bg-[#0548AF] text-white px-6 py-3 mt-3 rounded-lg text-sm font-semibold transition-all shadow-sm"
             >
               Book Consultation
             </button>
@@ -175,7 +175,7 @@ const Navbar = () => {
                   type="text" 
                   name="name"
                   required 
-                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 placeholder:text-slate-400" 
+                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900 placeholder:text-slate-400" 
                   placeholder="John Doe" 
                 />
               </div>
@@ -186,14 +186,14 @@ const Navbar = () => {
                   type="tel" 
                   name="phone"
                   required 
-                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 placeholder:text-slate-400" 
+                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900 placeholder:text-slate-400" 
                   placeholder="+91 98765 43210" 
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">Select Service</label>
-                <select name="service" required className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 bg-white">
+                <select name="service" required className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900 bg-white">
                   <option value="">General Consultation</option>
                   <option value="implants">Dental Implants</option>
                   <option value="root-canal">Root Canal Treatment</option>
@@ -208,7 +208,7 @@ const Navbar = () => {
                   type="date" 
                   name="date"
                   required 
-                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900" 
+                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900" 
                 />
               </div>
 
@@ -216,7 +216,7 @@ const Navbar = () => {
                 <button 
                   type="submit" 
                   disabled={status === "Sending..."}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all shadow-sm disabled:bg-blue-400 disabled:cursor-not-allowed"
+                  className="w-full bg-[#2AACDE] hover:bg-[#0548AF] text-white font-semibold py-3 rounded-lg transition-all shadow-sm disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {status || "Confirm Booking"}
                 </button>

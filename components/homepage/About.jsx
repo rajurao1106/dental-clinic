@@ -47,7 +47,7 @@ const AboutUs = () => {
         >
           {/* Decorative Sparkles - Subtle animation */}
           <motion.div 
-            className="absolute -top-5 -left-5 sm:-top-6 sm:-left-6 text-blue-500 z-0 opacity-80"
+            className="absolute -top-5 -left-5 sm:-top-6 sm:-left-6 text-[#2AACDE] z-0 opacity-80"
             animate={{ 
               scale: [1, 1.1, 1], 
               opacity: [0.5, 0.8, 0.5] 
@@ -95,14 +95,14 @@ const AboutUs = () => {
           variants={staggerContainer}
         >
           <div className="space-y-4 flex flex-col items-center lg:items-start">
-            <motion.h3 variants={fadeUp} className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 uppercase flex items-center gap-2">
-              <span className="w-6 sm:w-8 h-0.5 bg-blue-600 rounded-full"></span>
+            <motion.h3 variants={fadeUp} className="text-xs sm:text-sm font-semibold tracking-widest text-[#2AACDE] uppercase flex items-center gap-2">
+              <span className="w-6 sm:w-8 h-0.5 bg-[#2AACDE] rounded-full"></span>
               About Us
             </motion.h3>
             
             <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
               Welcome to <br />
-              <span className="text-blue-600">Sikarwar Dental Hospital</span>
+              <span className="text-[#2AACDE]">Sikarwar Dental Hospital</span>
             </motion.h2>
             
             <motion.div variants={fadeUp} className="space-y-4 text-slate-600 text-base sm:text-lg leading-relaxed max-w-lg pt-2 font-normal">
@@ -121,9 +121,9 @@ const AboutUs = () => {
                 key={idx} 
                 variants={fadeUp}
                 whileHover={{ scale: 1.02, x: 2 }}
-                className="flex items-center justify-start gap-3 bg-white p-3.5 rounded-lg border border-slate-200 transition-all hover:shadow-sm hover:border-blue-200 text-left"
+                className="flex items-center justify-start gap-3 bg-white p-3.5 rounded-lg border border-slate-200 transition-all hover:shadow-sm hover:border-[#2AACDE]/30 text-left"
               >
-                <CheckCircle2 size={18} className="text-blue-600 fill-blue-50 shrink-0" />
+                <CheckCircle2 size={18} className="text-[#2AACDE] fill-[#2AACDE]/10 shrink-0" />
                 <span className="text-slate-700 font-medium text-sm">{text}</span>
               </motion.li>
             ))}
@@ -133,7 +133,7 @@ const AboutUs = () => {
             <motion.button 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto px-8 py-3.5 rounded-lg text-sm sm:text-base font-medium shadow-sm transition-colors"
+              className="flex items-center justify-center gap-2 bg-[#2AACDE] hover:bg-[#0548AF] text-white w-full sm:w-auto px-8 py-3.5 rounded-lg text-sm sm:text-base font-medium shadow-sm transition-colors"
             >
               Meet Dr. Sunny Sikarwar
               <ArrowRight size={18} />

@@ -37,7 +37,7 @@ const BeforeAfterCard = ({ item, fadeUp }) => {
         <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-sm text-white text-[10px] sm:text-xs font-semibold px-2.5 py-1 rounded-md shadow-sm pointer-events-none z-10">
           Before
         </div>
-        <div className="absolute top-3 right-3 bg-blue-600/90 backdrop-blur-sm text-white text-[10px] sm:text-xs font-semibold px-2.5 py-1 rounded-md shadow-sm pointer-events-none z-10">
+        <div className="absolute top-3 right-3 bg-[#2AACDE]/90 backdrop-blur-sm text-white text-[10px] sm:text-xs font-semibold px-2.5 py-1 rounded-md shadow-sm pointer-events-none z-10">
           After
         </div>
 
@@ -57,7 +57,7 @@ const BeforeAfterCard = ({ item, fadeUp }) => {
           style={{ left: `${sliderPosition}%` }}
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center border border-slate-100">
-            <ArrowLeftRight size={16} className="text-blue-600" />
+            <ArrowLeftRight size={16} className="text-[#2AACDE]" />
           </div>
         </div>
       </div>
@@ -108,13 +108,9 @@ const BeforeAfter = () => {
   };
 
   return (
-    <section id="transformations" className="bg-slate-50 py-16 md:py-24 px-4 md:px-8 overflow-hidden relative">
+    <section id="transformations" className=" py-16 md:py-24 px-4 md:px-8 overflow-hidden relative">
       
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] bg-blue-100/50 rounded-full blur-3xl" />
-        <div className="absolute bottom-[10%] -left-[10%] w-[40%] h-[40%] bg-teal-50/50 rounded-full blur-3xl" />
-      </div>
+    
 
       <div className="max-w-7xl mx-auto relative z-10">
         
@@ -126,14 +122,14 @@ const BeforeAfter = () => {
           variants={fadeUp}
           className="text-center mb-12 md:mb-16 space-y-4"
         >
-          <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 uppercase flex items-center justify-center gap-2">
-            <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
+          <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-[#2AACDE] uppercase flex items-center justify-center gap-2">
+            <span className="w-8 h-0.5 bg-[#2AACDE] rounded-full"></span>
             Real Results
-            <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
+            <span className="w-8 h-0.5 bg-[#2AACDE] rounded-full"></span>
           </h3>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
             Our Patient <br className="hidden sm:block" />
-            <span className="text-blue-600">Smile Transformations</span>
+            <span className="text-[#2AACDE]">Smile Transformations</span>
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base font-normal">
             See the difference our expert care can make. Swipe through some of our successful dental treatments, from implants to complete smile makeovers.

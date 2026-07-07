@@ -43,14 +43,14 @@ const Testimonials = () => {
   return (
     <section className="bg-slate-900 py-16 md:py-24 px-4 md:px-8 flex flex-col items-center relative overflow-hidden">
       
-      {/* Subtle Ambient Background Blobs */}
+      {/* Subtle Ambient Background Blobs matching brand colors */}
       <motion.div 
         animate={{ 
           scale: [1, 1.05, 1],
           opacity: [0.03, 0.06, 0.03] 
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -top-32 -left-32 w-[30rem] h-[30rem] bg-blue-500 rounded-full blur-[120px] z-0 pointer-events-none"
+        className="absolute -top-32 -left-32 w-[30rem] h-[30rem] bg-[#2AACDE] rounded-full blur-[120px] z-0 pointer-events-none"
       />
       <motion.div 
         animate={{ 
@@ -58,7 +58,7 @@ const Testimonials = () => {
           opacity: [0.02, 0.05, 0.02] 
         }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute -bottom-32 -right-32 w-[30rem] h-[30rem] bg-teal-400 rounded-full blur-[120px] z-0 pointer-events-none"
+        className="absolute -bottom-32 -right-32 w-[30rem] h-[30rem] bg-[#0548AF] rounded-full blur-[120px] z-0 pointer-events-none"
       />
 
       {/* Header */}
@@ -69,13 +69,13 @@ const Testimonials = () => {
         variants={fadeUp}
         className="text-center mb-12 md:mb-16 space-y-4 z-10 px-4"
       >
-        <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-blue-400 uppercase flex items-center justify-center gap-2">
-          <span className="w-8 h-0.5 bg-blue-400 rounded-full"></span>
+        <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-[#2AACDE] uppercase flex items-center justify-center gap-2">
+          <span className="w-8 h-0.5 bg-[#2AACDE] rounded-full"></span>
           Patient Testimonials
-          <span className="w-8 h-0.5 bg-blue-400 rounded-full"></span>
+          <span className="w-8 h-0.5 bg-[#2AACDE] rounded-full"></span>
         </h3>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
-          What Our <span className="text-blue-400">Patients</span> Say
+          What Our <span className="text-[#2AACDE]">Patients</span> Say
         </h2>
         <p className='text-white'>We take immense pride in the care we provide. Here's what some of our patients and their families have to say about their experiences:</p>
       </motion.div>
@@ -97,7 +97,7 @@ const Testimonials = () => {
           >
             {/* Elegant Professional Quote Icon */}
             <Quote 
-              className="absolute top-6 right-6 md:top-8 md:right-8 w-10 h-10 md:w-12 md:h-12 text-blue-50 fill-blue-50 z-0 pointer-events-none" 
+              className="absolute top-6 right-6 md:top-8 md:right-8 w-10 h-10 md:w-12 md:h-12 text-[#2AACDE]/10 fill-[#2AACDE]/10 z-0 pointer-events-none" 
             />
 
             {/* Card Content */}
@@ -129,8 +129,8 @@ const Testimonials = () => {
                     alt={t.author}
                     className="w-full h-full object-cover"
                     onError={(e) => {
-                      // Fallback if image path is broken
-                      e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(t.author)}&background=0D8ABC&color=fff`;
+                      // Fallback if image path is broken, now using the primary brand color #2AACDE
+                      e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(t.author)}&background=2AACDE&color=fff`;
                     }}
                   />
                 </div>
@@ -157,7 +157,7 @@ const Testimonials = () => {
           <div 
             key={idx}
             className={`h-2 rounded-full transition-all duration-300 ${
-              isActive ? 'w-8 bg-blue-500' : 'w-2 bg-slate-600 hover:bg-slate-500 cursor-pointer'
+              isActive ? 'w-8 bg-[#2AACDE]' : 'w-2 bg-slate-600 hover:bg-slate-500 cursor-pointer'
             }`}
           />
         ))}

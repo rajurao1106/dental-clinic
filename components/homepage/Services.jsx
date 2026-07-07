@@ -103,15 +103,15 @@ const Services = () => {
 
   // Reusable Marquee Banner Component - Made slightly thinner and more elegant
   const MarqueeBanner = () => (
-    <div className="bg-blue-600 py-3 overflow-hidden flex whitespace-nowrap border-y border-blue-700">
+    <div className="bg-[#2AACDE] py-3 overflow-hidden flex whitespace-nowrap border-y border-[#0548AF]">
       <div className="flex animate-marquee items-center">
         {[...marqueeItems, ...marqueeItems, ...marqueeItems].map(
           (item, index) => (
             <div key={index} className="flex items-center mx-4 md:mx-8">
-              <span className="text-blue-50 font-medium text-sm md:text-base tracking-wide mr-4 md:mr-8">
+              <span className="text-white font-medium text-sm md:text-base tracking-wide mr-4 md:mr-8">
                 {item}
               </span>
-              <ToothIcon className="w-4 h-4 md:w-5 md:h-5 text-blue-300 opacity-70" />
+              <ToothIcon className="w-4 h-4 md:w-5 md:h-5 text-white/70 opacity-70" />
             </div>
           ),
         )}
@@ -148,23 +148,23 @@ const Services = () => {
           className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6"
         >
           <div className="space-y-4 text-center md:text-left">
-            <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 uppercase flex items-center justify-center md:justify-start gap-2">
-              <span className="w-8 h-0.5 bg-blue-600 rounded-full"></span>
+            <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-[#2AACDE] uppercase flex items-center justify-center md:justify-start gap-2">
+              <span className="w-8 h-0.5 bg-[#2AACDE] rounded-full"></span>
               Our Dental Services
             </h3>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
               Advanced Treatments <br className="hidden sm:block" />
-              <span className="text-blue-600">for Your Best Smile</span>
+              <span className="text-[#2AACDE]">for Your Best Smile</span>
             </h2>
           </div>
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-8 py-3.5 rounded-lg font-medium shadow-sm transition-colors whitespace-nowrap w-full md:w-auto"
+            className="flex items-center justify-center gap-2 bg-[#2AACDE] hover:bg-[#0548AF] text-white px-8 py-3.5 rounded-lg font-medium shadow-sm transition-colors whitespace-nowrap w-full md:w-auto"
           >
             View All Services
             <ArrowRight size={18} />
-          </motion.button>
+          </motion.button> */}
         </motion.div>
 
         {/* Services Grid */}
@@ -180,7 +180,7 @@ const Services = () => {
               key={idx}
               variants={fadeUp}
               whileHover={{ y: -6 }}
-              className="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-300 flex flex-col cursor-pointer"
+              className="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#2AACDE]/30 transition-all duration-300 flex flex-col cursor-pointer"
             >
               <div className="relative">
                 {/* Card Image area */}
@@ -195,26 +195,26 @@ const Services = () => {
                 </div>
 
                 {/* Overlapping Icon Badge - Clean, squared-off corners without rotation */}
-                <div className="absolute -bottom-6 left-6 w-12 h-12 md:w-14 md:h-14 bg-blue-600 rounded-lg shadow-md flex items-center justify-center border-4 border-white z-10 transition-transform duration-300 group-hover:-translate-y-1">
+                <div className="absolute -bottom-6 left-6 w-12 h-12 md:w-14 md:h-14 bg-[#2AACDE] rounded-lg shadow-md flex items-center justify-center border-4 border-white z-10 transition-transform duration-300 group-hover:-translate-y-1">
                   <service.icon size={22} className="text-white" />
                 </div>
               </div>
 
               {/* Card Content */}
-              <div className="pt-10 pb-6 px-6 md:pt-12 md:pb-8 md:px-8 flex-1 flex flex-col">
-                <h4 className="text-lg md:text-xl font-semibold text-slate-900 mb-2 md:mb-3 group-hover:text-blue-600 transition-colors">
+              <div className="pt-10 px-6 md:pt-12 md:px-8 flex-1 flex flex-col">
+                <h4 className="text-lg md:text-xl font-semibold text-slate-900 mb-2 md:mb-3 group-hover:text-[#2AACDE] transition-colors">
                   {service.title}
                 </h4>
                 <p className="text-slate-600 text-sm leading-relaxed mb-6 md:mb-8 flex-1 font-normal">
                   {service.description}
                 </p>
-                <div className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 group-hover:text-blue-600 transition-colors w-fit">
+                {/* <div className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 group-hover:text-[#2AACDE] transition-colors w-fit">
                   Learn more
                   <ArrowRight
                     size={16}
                     className="group-hover:translate-x-1 transition-transform duration-300"
                   />
-                </div>
+                </div> */}
               </div>
             </motion.div>
           ))}

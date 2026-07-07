@@ -140,7 +140,7 @@ const Hero = () => {
               variants={fadeUp}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tight"
             >
-              Best <span className="text-blue-600">Dental Hospital</span> &
+              Best <span className="text-[#2AACDE]">Dental Hospital</span> &
               Implant Center in Raipur
             </motion.h1>
 
@@ -163,7 +163,7 @@ const Hero = () => {
                 onClick={() => setIsModalOpen(true)}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto px-8 py-3.5 rounded-lg font-medium transition-colors shadow-sm"
+                className="flex items-center justify-center gap-2 bg-[#2AACDE] hover:bg-[#0548AF] text-white w-full sm:w-auto px-8 py-3.5 rounded-lg font-medium transition-colors shadow-sm"
               >
                 Book Your Consultation
                 <ArrowRight size={18} />
@@ -177,7 +177,7 @@ const Hero = () => {
             <motion.div
               animate={{ scale: [1, 1.05, 1], rotate: [0, 90, 0] }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-blue-500 rounded-full opacity-[0.05] blur-3xl z-0"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-[#2AACDE] rounded-full opacity-[0.05] blur-3xl z-0"
             />
             <motion.div
               animate={{ y: [0, -15, 0], scale: [1, 1.05, 1] }}
@@ -208,11 +208,11 @@ const Hero = () => {
           <div className="w-full flex flex-col lg:flex-row gap-5">
             {/* Name Field */}
             <div className="flex-1 border-b lg:border-b-0 lg:border-r border-slate-100 pb-4 lg:pb-0 lg:pr-4 group">
-              <label className="text-xs font-medium text-slate-500 tracking-wide mb-1.5 block group-focus-within:text-blue-600 transition-colors">
+              <label className="text-xs font-medium text-slate-500 tracking-wide mb-1.5 block group-focus-within:text-[#2AACDE] transition-colors">
                 Patient Name
               </label>
               <div className="flex items-center gap-3 text-slate-700">
-                <User size={18} className="text-slate-400 group-focus-within:text-blue-600 transition-colors" />
+                <User size={18} className="text-slate-400 group-focus-within:text-[#2AACDE] transition-colors" />
                 <input
                   type="text"
                   name="name"
@@ -225,11 +225,11 @@ const Hero = () => {
 
             {/* Phone Field */}
             <div className="flex-1 border-b lg:border-b-0 lg:border-r border-slate-100 pb-4 lg:pb-0 lg:pr-4 group">
-              <label className="text-xs font-medium text-slate-500 tracking-wide mb-1.5 block group-focus-within:text-blue-600 transition-colors">
+              <label className="text-xs font-medium text-slate-500 tracking-wide mb-1.5 block group-focus-within:text-[#2AACDE] transition-colors">
                 Phone Number
               </label>
               <div className="flex items-center gap-3 text-slate-700">
-                <Phone size={18} className="text-slate-400 group-focus-within:text-blue-600 transition-colors" />
+                <Phone size={18} className="text-slate-400 group-focus-within:text-[#2AACDE] transition-colors" />
                 <input
                   type="tel"
                   name="phone"
@@ -242,11 +242,11 @@ const Hero = () => {
 
             {/* Date Field */}
             <div className="flex-1 border-b lg:border-b-0 lg:border-r border-slate-100 pb-4 lg:pb-0 lg:pr-4 group">
-              <label className="text-xs font-medium text-slate-500 tracking-wide mb-1.5 block group-focus-within:text-blue-600 transition-colors">
+              <label className="text-xs font-medium text-slate-500 tracking-wide mb-1.5 block group-focus-within:text-[#2AACDE] transition-colors">
                 Preferred Date
               </label>
               <div className="flex items-center gap-3 text-slate-700">
-                <Calendar size={18} className="text-slate-400 group-focus-within:text-blue-600 shrink-0 transition-colors" />
+                <Calendar size={18} className="text-slate-400 group-focus-within:text-[#2AACDE] shrink-0 transition-colors" />
                 <input
                   type="date"
                   name="date"
@@ -258,11 +258,11 @@ const Hero = () => {
 
             {/* Time Field */}
             <div className="flex-1 pb-4 lg:pb-0 lg:pr-4 group">
-              <label className="text-xs font-medium text-slate-500 tracking-wide mb-1.5 block group-focus-within:text-blue-600 transition-colors">
+              <label className="text-xs font-medium text-slate-500 tracking-wide mb-1.5 block group-focus-within:text-[#2AACDE] transition-colors">
                 Preferred Time
               </label>
               <div className="flex items-center gap-3 text-slate-700">
-                <Clock size={18} className="text-slate-400 group-focus-within:text-blue-600 shrink-0 transition-colors" />
+                <Clock size={18} className="text-slate-400 group-focus-within:text-[#2AACDE] shrink-0 transition-colors" />
                 <input
                   type="time"
                   name="time"
@@ -279,7 +279,7 @@ const Hero = () => {
               type="submit"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full lg:w-auto bg-slate-900 hover:bg-slate-800 text-white px-8 py-3.5 rounded-lg text-sm font-medium shadow-sm transition-colors whitespace-nowrap"
+              className="w-full lg:w-auto bg-[#2AACDE] hover:bg-[#0548AF] text-white px-8 py-3.5 rounded-lg text-sm font-medium shadow-sm transition-colors whitespace-nowrap"
             >
               {inlineStatus || "Request Appointment"}
             </motion.button>
@@ -315,7 +315,7 @@ const Hero = () => {
                   type="text" 
                   name="name"
                   required 
-                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 placeholder:text-slate-400" 
+                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900 placeholder:text-slate-400" 
                   placeholder="John Doe" 
                 />
               </div>
@@ -326,14 +326,14 @@ const Hero = () => {
                   type="tel" 
                   name="phone"
                   required 
-                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 placeholder:text-slate-400" 
+                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900 placeholder:text-slate-400" 
                   placeholder="+91 98765 43210" 
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">Select Service</label>
-                <select name="service" required className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900 bg-white">
+                <select name="service" required className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900 bg-white">
                   <option value="">General Consultation</option>
                   <option value="implants">Dental Implants</option>
                   <option value="root-canal">Root Canal Treatment</option>
@@ -348,7 +348,7 @@ const Hero = () => {
                   type="date" 
                   name="date"
                   required 
-                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all text-sm text-slate-900" 
+                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900" 
                 />
               </div>
 
@@ -356,7 +356,7 @@ const Hero = () => {
                 <button 
                   type="submit" 
                   disabled={modalStatus === "Sending..."}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all shadow-sm disabled:bg-blue-400 disabled:cursor-not-allowed"
+                  className="w-full bg-[#2AACDE] hover:bg-[#0548AF] text-white font-semibold py-3 rounded-lg transition-all shadow-sm disabled:bg-[#2AACDE] disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {modalStatus || "Confirm Booking"}
                 </button>

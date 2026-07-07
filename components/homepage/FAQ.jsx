@@ -79,13 +79,13 @@ const FAQ = () => {
         variants={fadeUp}
         className="text-center mb-12 md:mb-16 space-y-4 px-4"
       >
-        <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 uppercase flex items-center justify-center gap-2">
-          <span className="w-6 sm:w-8 h-0.5 bg-blue-600 rounded-full"></span>
+        <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-[#2AACDE] uppercase flex items-center justify-center gap-2">
+          <span className="w-6 sm:w-8 h-0.5 bg-[#2AACDE] rounded-full"></span>
           FAQ
-          <span className="w-6 sm:w-8 h-0.5 bg-blue-600 rounded-full"></span>
+          <span className="w-6 sm:w-8 h-0.5 bg-[#2AACDE] rounded-full"></span>
         </h3>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
-          <span className="text-blue-600">Dental Care FAQ:</span> Your <br className="hidden md:block" />
+          <span className="text-[#2AACDE]">Dental Care FAQ:</span> Your <br className="hidden md:block" />
           Questions Answered
         </h2>
       </motion.div>
@@ -110,15 +110,15 @@ const FAQ = () => {
                 onClick={() => setOpenFaq(isOpen ? null : index)}
                 className={`cursor-pointer rounded-xl overflow-hidden transition-all duration-300 border ${
                   isOpen 
-                    ? "bg-white border-blue-200 shadow-md ring-1 ring-blue-50" 
-                    : "bg-white border-slate-200 hover:border-blue-100 hover:shadow-sm"
+                    ? "bg-white border-[#2AACDE]/30 shadow-md ring-1 ring-[#2AACDE]/10" 
+                    : "bg-white border-slate-200 hover:border-[#2AACDE]/20 hover:shadow-sm"
                 }`}
               >
                 {/* Question Area */}
                 <div className="px-5 md:px-6 py-4 md:py-5 flex items-center justify-between bg-white">
                   <h4
                     className={`font-semibold text-sm sm:text-base pr-4 transition-colors duration-300 ${
-                      isOpen ? "text-blue-600" : "text-slate-800"
+                      isOpen ? "text-[#2AACDE]" : "text-slate-800"
                     }`}
                   >
                     {faq.question}
@@ -128,7 +128,7 @@ const FAQ = () => {
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className={`flex-shrink-0 ml-2 md:ml-4 flex items-center justify-center w-8 h-8 rounded-full transition-colors ${
-                      isOpen ? "bg-blue-50 text-blue-600" : "bg-slate-50 text-slate-400"
+                      isOpen ? "bg-[#2AACDE]/10 text-[#2AACDE]" : "bg-slate-50 text-slate-400"
                     }`}
                   >
                     {isOpen ? <Minus size={18} /> : <Plus size={18} />}
@@ -168,7 +168,7 @@ const FAQ = () => {
           {/* Support CTA Card */}
           <motion.div
             variants={slideInRight}
-            className="bg-blue-600 rounded-2xl p-8 lg:p-10 flex flex-col items-center text-center shadow-md relative overflow-hidden"
+            className="bg-[#2AACDE] rounded-2xl p-8 lg:p-10 flex flex-col items-center text-center shadow-md relative overflow-hidden"
           >
             {/* Subtle background element */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-bl-full pointer-events-none" />
@@ -184,7 +184,7 @@ const FAQ = () => {
             <h4 className="text-white font-semibold text-lg md:text-xl mb-3">
               Have more questions?
             </h4>
-            <p className="text-blue-100 text-sm leading-relaxed mb-8 font-normal">
+            <p className="text-white/80 text-sm leading-relaxed mb-8 font-normal">
               Our team is ready to provide all the answers you need. We ensure a quick and helpful response.
             </p>
             
@@ -192,7 +192,7 @@ const FAQ = () => {
               <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-white text-blue-600 px-8 py-3 rounded-lg text-sm font-semibold hover:bg-slate-50 transition-colors shadow-sm w-full sm:w-auto"
+              className="bg-white text-[#2AACDE] px-8 py-3 rounded-lg text-sm font-semibold hover:bg-slate-50 transition-colors shadow-sm w-full sm:w-auto"
             >
               Contact Us
             </motion.button>
@@ -205,8 +205,8 @@ const FAQ = () => {
             whileHover={{ y: -4 }}
             className="bg-white border border-slate-200 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all duration-300 flex items-center gap-4 cursor-pointer group"
           >
-            <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
-              <PhoneCall className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors duration-300" />
+            <div className="w-12 h-12 bg-[#2AACDE]/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-[#2AACDE] transition-colors duration-300">
+              <PhoneCall className="w-5 h-5 text-[#2AACDE] group-hover:text-white transition-colors duration-300" />
             </div>
             <div>
               <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1">
@@ -215,7 +215,7 @@ const FAQ = () => {
               <h4 className="text-base font-bold text-slate-900 mb-0.5">
                 24/7 Emergency
               </h4>
-              <p className="text-blue-600 font-medium text-sm">+91 74006 56692</p>
+              <p className="text-[#2AACDE] font-medium text-sm">+91 74006 56692</p>
             </div>
           </motion.div>
         </motion.div>

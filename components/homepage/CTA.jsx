@@ -92,15 +92,15 @@ const Booking = () => {
 
   // Marquee Banner Component - Thinner and more elegant
   const MarqueeBanner = () => (
-    <div className="bg-blue-600 py-3 overflow-hidden flex whitespace-nowrap border-y border-blue-700">
+    <div className="bg-[#2AACDE] py-3 overflow-hidden flex whitespace-nowrap border-y border-[#0548AF]">
       <div className="flex animate-marquee items-center">
         {[...marqueeItems, ...marqueeItems, ...marqueeItems].map(
           (item, index) => (
             <div key={index} className="flex items-center mx-4 md:mx-8">
-              <span className="text-blue-50 font-medium text-sm md:text-base tracking-wide mr-4 md:mr-8">
+              <span className="text-white font-medium text-sm md:text-base tracking-wide mr-4 md:mr-8">
                 {item}
               </span>
-              <ToothIcon className="w-4 h-4 md:w-5 md:h-5 text-blue-300 opacity-70" />
+              <ToothIcon className="w-4 h-4 md:w-5 md:h-5 text-white/70 opacity-70" />
             </div>
           ),
         )}
@@ -138,12 +138,12 @@ const Booking = () => {
             className="space-y-6 md:space-y-8 bg-white p-6 md:p-10 rounded-2xl shadow-lg border border-slate-200"
           >
             <motion.div variants={fadeUp} className="space-y-3 md:space-y-4">
-              <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 uppercase flex items-center gap-2">
-                <span className="w-6 sm:w-8 h-0.5 bg-blue-600 rounded-full"></span>
+              <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-[#2AACDE] uppercase flex items-center gap-2">
+                <span className="w-6 sm:w-8 h-0.5 bg-[#2AACDE] rounded-full"></span>
                 Book an Appointment
               </h3>
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 leading-tight tracking-tight">
-                Request Your <span className="text-blue-600">Consultation</span>
+                Request Your <span className="text-[#2AACDE]">Consultation</span>
               </h2>
             </motion.div>
 
@@ -163,7 +163,7 @@ const Booking = () => {
                     type="text"
                     name="name"
                     placeholder="Ex. John Doe"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all font-medium text-slate-900 placeholder:text-slate-400"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm outline-none focus:bg-white focus:border-[#2AACDE] focus:ring-2 focus:ring-[#2AACDE]/30 transition-all font-medium text-slate-900 placeholder:text-slate-400"
                     required
                   />
                 </motion.div>
@@ -176,7 +176,7 @@ const Booking = () => {
                     type="tel"
                     name="phone"
                     placeholder="+91 00000 00000"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all font-medium text-slate-900 placeholder:text-slate-400"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm outline-none focus:bg-white focus:border-[#2AACDE] focus:ring-2 focus:ring-[#2AACDE]/30 transition-all font-medium text-slate-900 placeholder:text-slate-400"
                     required
                   />
                 </motion.div>
@@ -187,7 +187,7 @@ const Booking = () => {
                   </label>
                   <select
                     name="treatment"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all cursor-pointer font-medium text-slate-800"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm outline-none focus:bg-white focus:border-[#2AACDE] focus:ring-2 focus:ring-[#2AACDE]/30 transition-all cursor-pointer font-medium text-slate-800"
                     required
                     defaultValue=""
                   >
@@ -212,7 +212,7 @@ const Booking = () => {
                   </label>
                   <select
                     name="preferred_doctor"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all cursor-pointer font-medium text-slate-800"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm outline-none focus:bg-white focus:border-[#2AACDE] focus:ring-2 focus:ring-[#2AACDE]/30 transition-all cursor-pointer font-medium text-slate-800"
                     required
                     defaultValue="dr-sunny"
                   >
@@ -228,7 +228,7 @@ const Booking = () => {
                   <input
                     type="date"
                     name="date"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 font-medium outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all cursor-pointer"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 font-medium outline-none focus:bg-white focus:border-[#2AACDE] focus:ring-2 focus:ring-[#2AACDE]/30 transition-all cursor-pointer"
                     required
                   />
                 </motion.div>
@@ -240,7 +240,7 @@ const Booking = () => {
                   <input
                     type="time"
                     name="time"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 font-medium outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all cursor-pointer"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-800 font-medium outline-none focus:bg-white focus:border-[#2AACDE] focus:ring-2 focus:ring-[#2AACDE]/30 transition-all cursor-pointer"
                     required
                   />
                 </motion.div>
@@ -255,7 +255,7 @@ const Booking = () => {
                   name="message"
                   rows="3"
                   placeholder="Tell us what you need help with..."
-                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none font-medium text-slate-900 placeholder:text-slate-400"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm outline-none focus:bg-white focus:border-[#2AACDE] focus:ring-2 focus:ring-[#2AACDE]/30 transition-all resize-none font-medium text-slate-900 placeholder:text-slate-400"
                 ></textarea>
               </motion.div>
 
@@ -264,7 +264,7 @@ const Booking = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="flex items-center justify-center gap-2 w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 sm:px-10 py-3.5 rounded-lg text-sm sm:text-base font-semibold shadow-sm transition-colors"
+                  className="flex items-center justify-center gap-2 w-full sm:w-auto bg-[#2AACDE] hover:bg-[#0548AF] text-white px-8 sm:px-10 py-3.5 rounded-lg text-sm sm:text-base font-semibold shadow-sm transition-colors"
                 >
                   Confirm Appointment
                   <ArrowRight size={18} />
@@ -291,8 +291,8 @@ const Booking = () => {
               variants={slideInRight}
               className="space-y-4 text-center lg:text-left flex flex-col items-center lg:items-start"
             >
-              <div className="inline-flex items-center justify-center p-3 bg-blue-50 rounded-xl mb-1">
-                <CalendarClock className="w-6 h-6 md:w-8 md:h-8 text-blue-600" />
+              <div className="inline-flex items-center justify-center p-3 bg-[#2AACDE]/10 rounded-xl mb-1">
+                <CalendarClock className="w-6 h-6 md:w-8 md:h-8 text-[#2AACDE]" />
               </div>
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">
                 Visit Us in Raipur
@@ -313,9 +313,9 @@ const Booking = () => {
               whileHover={{ y: -4 }}
               className="bg-slate-900 rounded-2xl p-6 md:p-8 text-white shadow-lg relative overflow-hidden transition-transform duration-300"
             >
-              <div className="absolute -right-10 -top-10 w-32 h-32 md:w-40 md:h-40 bg-blue-500 rounded-full opacity-10 blur-3xl"></div>
+              <div className="absolute -right-10 -top-10 w-32 h-32 md:w-40 md:h-40 bg-[#2AACDE] rounded-full opacity-10 blur-3xl"></div>
               <h4 className="font-semibold text-lg md:text-xl mb-5 flex items-center gap-2 relative z-10">
-                <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                <span className="w-2 h-2 rounded-full bg-[#2AACDE] animate-pulse"></span>
                 Clinic Timings
               </h4>
               <div className="space-y-4 text-xs sm:text-sm font-medium border-t border-slate-700 pt-5 relative z-10">
@@ -327,7 +327,7 @@ const Booking = () => {
                 </div>
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
                   <span className="text-slate-400">Sunday</span>
-                  <span className="bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3 py-1.5 rounded-md">
+                  <span className="bg-[#2AACDE]/10 text-[#2AACDE] border border-[#2AACDE]/20 px-3 py-1.5 rounded-md">
                     Prior Appointment Only
                   </span>
                 </div>
@@ -337,13 +337,13 @@ const Booking = () => {
             {/* Emergency Contact Card */}
             <motion.div
               variants={slideInRight}
-              className="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-slate-200 flex items-center gap-4 md:gap-6 group hover:border-blue-200 transition-colors cursor-pointer"
+              className="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-slate-200 flex items-center gap-4 md:gap-6 group hover:border-[#2AACDE]/40 transition-colors cursor-pointer"
             >
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
-                <PhoneCall className="w-5 h-5 md:w-6 md:h-6 text-blue-600 group-hover:text-white transition-colors" />
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-[#2AACDE]/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-[#2AACDE] transition-colors duration-300">
+                <PhoneCall className="w-5 h-5 md:w-6 md:h-6 text-[#2AACDE] group-hover:text-white transition-colors" />
               </div>
               <div>
-                <p className="text-[10px] md:text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">
+                <p className="text-[10px] md:text-xs font-semibold text-[#2AACDE] uppercase tracking-wider mb-1">
                   Direct Contact
                 </p>
                 <h4 className="text-lg font-bold text-slate-900 mb-0.5">
@@ -351,7 +351,7 @@ const Booking = () => {
                 </h4>
                 <a
                   href="tel:+917400656692"
-                  className="text-slate-600 font-medium text-base hover:text-blue-600 transition-colors block"
+                  className="text-slate-600 font-medium text-base hover:text-[#2AACDE] transition-colors block"
                 >
                   +91 74006 56692
                 </a>

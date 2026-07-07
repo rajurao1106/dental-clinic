@@ -58,7 +58,7 @@ const WhyChooseUs = () => {
       <div className="max-w-7xl mx-auto">
         
         {/* Main Content Split */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
           
           {/* Left Side: Portrait Image Area */}
           <motion.div 
@@ -94,9 +94,9 @@ const WhyChooseUs = () => {
                 repeat: Infinity, 
                 ease: "easeInOut" 
               }}
-              className="absolute -bottom-4 -left-6 md:-bottom-6 md:-left-8 z-20 text-blue-500 opacity-80"
+              className="absolute -bottom-4 -left-6 md:-bottom-6 md:-left-8 z-20 text-[#2AACDE] opacity-80"
             >
-              {/* <Sparkles className="w-14 h-14 md:w-16 md:h-16 fill-blue-50 text-blue-500" /> */}
+              {/* <Sparkles className="w-14 h-14 md:w-16 md:h-16 fill-[#2AACDE]/20 text-[#2AACDE]" /> */}
             </motion.div>
           </motion.div>
 
@@ -110,13 +110,13 @@ const WhyChooseUs = () => {
           >
             {/* Title Section */}
             <motion.div variants={fadeUp} className="space-y-4 flex flex-col items-center lg:items-start">
-              <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 uppercase flex items-center gap-2">
-                <span className="w-6 sm:w-8 h-0.5 bg-blue-600 rounded-full"></span>
+              <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-[#2AACDE] uppercase flex items-center gap-2">
+                <span className="w-6 sm:w-8 h-0.5 bg-[#2AACDE] rounded-full"></span>
                 Why Choose Us
               </h3>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
                 Why Patients Trust <br className="hidden md:block" />
-                <span className="text-blue-600">Sikarwar Dental Hospital</span>
+                <span className="text-[#2AACDE]">Sikarwar Dental Hospital</span>
               </h2>
             </motion.div>
 
@@ -145,8 +145,8 @@ const WhyChooseUs = () => {
             <motion.ul variants={staggerContainer} className="space-y-5 w-full max-w-lg text-left">
               {benefits.map((benefit, idx) => (
                 <motion.li key={idx} variants={fadeUp} className="flex items-start gap-4">
-                  <div className="mt-0.5 bg-blue-50 p-1.5 rounded-lg">
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                  <div className="mt-0.5 bg-[#2AACDE]/10 p-1.5 rounded-lg">
+                    <CheckCircle2 className="w-5 h-5 text-[#2AACDE] flex-shrink-0" />
                   </div>
                   <div>
                     <h5 className="text-sm sm:text-base font-semibold text-slate-900">{benefit.title}</h5>
@@ -161,7 +161,7 @@ const WhyChooseUs = () => {
               <motion.button 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto px-8 py-3.5 rounded-lg text-sm sm:text-base font-semibold shadow-sm transition-colors"
+                className="flex items-center justify-center gap-2 bg-[#2AACDE] hover:bg-[#0548AF] text-white w-full sm:w-auto px-8 py-3.5 rounded-lg text-sm sm:text-base font-semibold shadow-sm transition-colors"
               >
                 Book an Appointment
                 <ArrowRight size={18} />
