@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Stethoscope, X, Menu } from 'lucide-react';
+import { X, Menu } from 'lucide-react';
+import Image from 'next/image';
+import logo from "@/public/homepage/logo1.png"
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -64,20 +66,24 @@ const Navbar = () => {
   return (
     <>
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200 relative">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 py-3.5">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 ">
           
           {/* Logo Section */}
           <a 
             href="#hero" 
             onClick={(e) => handleScroll(e, '#hero')}
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center cursor-pointer group"
           >
-            <div className="bg-blue-600 p-2.5 rounded-lg text-white group-hover:bg-blue-700 transition-colors">
-              <Stethoscope size={22} strokeWidth={2.5} />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-semibold tracking-tight text-slate-900 leading-none">Sikarwar</span>
-              <span className="text-[10px] font-medium text-slate-500 tracking-wider uppercase mt-1">Dental Hospital</span>
+            {/* Enlarged Logo Image */}
+            <div className="relative w-32 h-16 md:w-44 md:h-20 overflow-hidden group-hover:opacity-90 transition-opacity">
+              <Image 
+                src={logo} 
+                alt="Sikarwar Dental Hospital Logo" 
+                fill
+                className="object-contain object-left"
+                sizes="(max-width: 768px) 128px, 176px"
+                priority
+              />
             </div>
           </a>
 

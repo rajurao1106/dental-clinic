@@ -20,6 +20,7 @@ const VideoGallery = () => {
     { id: 6, category: "Patient Smiles", src: "/homepage/video6.mp4", alt: "Successful Implant Patient" },
     { id: 7, category: "Clinic Tour", src: "/homepage/video7.mp4", alt: "Operating Room" },
     { id: 8, category: "Equipment", src: "/homepage/video8.mp4", alt: "Sterilization Area" },
+    { id: 9, category: "Equipment", src: "/homepage/video9.mp4", alt: "Root canal treatment" },
   ];
 
   // Filter items based on active tab
