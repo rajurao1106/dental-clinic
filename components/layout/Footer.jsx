@@ -1,7 +1,8 @@
 import React from 'react';
 import { Stethoscope, MapPin, Phone, Mail, ChevronRight } from 'lucide-react'; 
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
-
+import logo from "@/public/homepage/logo2.jpeg"
+import Image from 'next/image';
 const Footer = () => {
   // Social icons mapping
   const socialIcons = [
@@ -21,13 +22,16 @@ const Footer = () => {
         {/* Column 1: Brand Section */}
         <div className="space-y-6 lg:pr-6">
           <div className="flex items-center gap-3 text-white">
-            <div className="bg-blue-600 p-2 rounded-xl shadow-lg shadow-blue-600/20">
-              <Stethoscope size={28} className="text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-extrabold tracking-tight leading-none">Sikarwar</span>
-              <span className="text-[10px] font-bold text-blue-400 tracking-widest uppercase mt-1">Dental Hospital</span>
-            </div>
+            <div className="relative w-32 h-16 md:w-44 md:h-20 overflow-hidden group-hover:opacity-90 transition-opacity">
+                         <Image
+                           src={logo} 
+                           alt="Sikarwar Dental Hospital Logo" 
+                           fill
+                           className="object-contain object-left"
+                           sizes="(max-width: 768px) 128px, 176px"
+                           priority
+                         />
+                       </div>
           </div>
           <p className="text-sm leading-relaxed text-slate-400">
             One of Raipur’s trusted centers for advanced dental and maxillofacial care. We restore oral health, improve confidence, and create healthy smiles.
