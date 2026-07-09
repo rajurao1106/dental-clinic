@@ -20,8 +20,8 @@ const VideoGallery = () => {
 
   // Gallery items containing both videos and images
   const galleryItems = [
-    { id: 1, category: "Clinic Tour", src: "/homepage/video1.mp4", type: "video", alt: "Reception Area" },
-    { id: 2, category: "Equipment", src: "/homepage/video2.mp4", type: "video", alt: "Advanced Dental Chair" },
+    // { id: 1, category: "Clinic Tour", src: "/homepage/video1.mp4", type: "video", alt: "Reception Area" },
+    // { id: 2, category: "Equipment", src: "/homepage/video2.mp4", type: "video", alt: "Advanced Dental Chair" },
     { id: 3, category: "Patient Smiles", src: "/homepage/video3.mp4", type: "video", alt: "Happy Patient" },
     { id: 4, category: "Clinic Tour", src: "/homepage/video4.mp4", type: "video", alt: "Consultation Room" },
     { id: 5, category: "Equipment", src: "/homepage/video5.mp4", type: "video", alt: "3D X-Ray Machine" },
