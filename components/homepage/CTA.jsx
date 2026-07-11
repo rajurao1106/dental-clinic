@@ -92,7 +92,7 @@ const Booking = () => {
 
   // Marquee Banner Component - Thinner and more elegant
   const MarqueeBanner = () => (
-    <div className="bg-[#2AACDE] py-3 overflow-hidden flex whitespace-nowrap border-y border-[#0548AF]">
+    <div id="book" className="bg-[#2AACDE] py-3 overflow-hidden flex whitespace-nowrap border-y border-[#0548AF]">
       <div className="flex animate-marquee items-center">
         {[...marqueeItems, ...marqueeItems, ...marqueeItems].map(
           (item, index) => (

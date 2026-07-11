@@ -190,7 +190,7 @@ const Hero = () => {
               initial="hidden"
               animate="visible"
               variants={imageReveal}
-              src="/homepage/hero.png"
+              src="/homepage/hero2.png"
               alt="Dr. Sunny Sikarwar - Best Dentist in Raipur"
               className="relative z-10 w-full max-w-md lg:max-w-[500px] object-cover rounded-2xl "
             />
@@ -209,7 +209,7 @@ const Hero = () => {
             {/* Name Field */}
             <div className="flex-1 border-b lg:border-b-0 lg:border-r border-slate-100 pb-4 lg:pb-0 lg:pr-4 group">
               <label className="text-xs font-medium text-slate-500 tracking-wide mb-1.5 block group-focus-within:text-[#2AACDE] transition-colors">
-                Patient Name
+                Your Name
               </label>
               <div className="flex items-center gap-3 text-slate-700">
                 <User size={18} className="text-slate-400 group-focus-within:text-[#2AACDE] transition-colors" />
@@ -217,7 +217,7 @@ const Hero = () => {
                   type="text"
                   name="name"
                   required
-                  placeholder="John Doe"
+                  placeholder="Your Name"
                   className="w-full outline-none text-sm font-medium focus:ring-0 py-1 transition-all bg-transparent placeholder:text-slate-300"
                 />
               </div>

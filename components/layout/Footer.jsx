@@ -13,8 +13,23 @@ const Footer = () => {
     { Icon: FaYoutube, link: '#' }
   ];
 
-  const quickLinks = ['About Us', 'Meet Dr. Sunny Sikarwar', 'Our Services', 'Patient Testimonials', 'Book Appointment'];
-  const treatments = ['Dental Implants', 'Teeth in 24 Hours', 'Root Canal', 'Braces & Aligners', 'Oral & Maxillofacial Surgery'];
+  // Updated Quick Links with section IDs
+  const quickLinks = [
+    { name: 'About Us', href: '#about' },
+    { name: 'Meet Dr. Sunny Sikarwar', href: '#doctor' },
+    { name: 'Our Services', href: '#services' },
+    { name: 'Patient Testimonials', href: '#testimonials' },
+    { name: 'Book Appointment', href: '#book' }
+  ];
+
+  // Updated Treatments with section IDs
+  const treatments = [
+    { name: 'Dental Implants', href: '#services' },
+    { name: 'Teeth in 24 Hours', href: '#services' },
+    { name: 'Root Canal', href: '#services' },
+    { name: 'Braces & Aligners', href: '#services' },
+    { name: 'Oral & Maxillofacial Surgery', href: '#services' }
+  ];
 
   return (
     <footer className="bg-slate-900 text-slate-300 pt-20 pb-8 px-8 border-t-[6px] border-[#2AACDE]">
@@ -23,13 +38,12 @@ const Footer = () => {
         {/* Column 1: Brand Section */}
         <div className="space-y-6 lg:pr-6">
           <div className="flex items-center gap-3 text-white">
-            <div className="relative w-32 h-16 md:w-44 md:h-20 overflow-hidden group-hover:opacity-90 transition-opacity">
+            <div className="relative w-32 h-16 md:w-44 md:h-20 rounded-lg overflow-hidden bg-red-500 group-hover:opacity-90 transition-opacity">
               <Image
                 src={logo} 
                 alt="Sikarwar Dental Hospital Logo" 
                 fill
-                className="object-contain object-left"
-                sizes="(max-width: 768px) 128px, 176px"
+                className=""
                 priority
               />
             </div>
@@ -56,9 +70,9 @@ const Footer = () => {
           <ul className="space-y-3">
             {quickLinks.map((link, idx) => (
               <li key={idx}>
-                <a href="#" className="flex items-center gap-2 text-sm text-slate-400 hover:text-[#2AACDE] hover:translate-x-1 transition-all duration-300 w-fit">
+                <a href={link.href} className="flex items-center gap-2 text-sm text-slate-400 hover:text-[#2AACDE] hover:translate-x-1 transition-all duration-300 w-fit">
                   <ChevronRight size={14} className="text-[#2AACDE]" />
-                  {link}
+                  {link.name}
                 </a>
               </li>
             ))}
@@ -71,9 +85,9 @@ const Footer = () => {
           <ul className="space-y-3">
             {treatments.map((treatment, idx) => (
               <li key={idx}>
-                <a href="#" className="flex items-center gap-2 text-sm text-slate-400 hover:text-[#2AACDE] hover:translate-x-1 transition-all duration-300 w-fit">
+                <a href={treatment.href} className="flex items-center gap-2 text-sm text-slate-400 hover:text-[#2AACDE] hover:translate-x-1 transition-all duration-300 w-fit">
                   <ChevronRight size={14} className="text-[#2AACDE]" />
-                  {treatment}
+                  {treatment.name}
                 </a>
               </li>
             ))}
@@ -118,10 +132,10 @@ const Footer = () => {
       {/* Bottom Copyright Bar */}
       <div className="max-w-7xl mx-auto pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
         <p>© {new Date().getFullYear()} Sikarwar Dental Hospital & Implant Center. All rights reserved.</p>
-        <div className="flex gap-6">
+        {/* <div className="flex gap-6">
           <a href="#" className="hover:text-[#2AACDE] transition-colors">Privacy Policy</a>
           <a href="#" className="hover:text-[#2AACDE] transition-colors">Terms of Service</a>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

@@ -41,7 +41,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="bg-slate-900 py-16 md:py-24 px-4 md:px-8 flex flex-col items-center relative overflow-hidden">
+    <section id='testimonials' className="bg-slate-900 py-16 md:py-24 px-4 md:px-8 flex flex-col items-center relative overflow-hidden">
       
       {/* Subtle Ambient Background Blobs matching brand colors */}
       <motion.div 

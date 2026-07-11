@@ -13,24 +13,18 @@ import implant7 from "@/public/homepage/dentalimplant7.jpeg";
 
 const VideoGallery = () => {
   const [activeTab, setActiveTab] = useState("All");
-  const [selectedItem, setSelectedItem] = useState(null); // Tracks video or image opened in modal
+  const [selectedItem, setSelectedItem] = useState(null);
 
-  // Added "Dental Implant" category
   const categories = ["All", "Clinic Tour", "Patient Smiles", "Equipment", "Dental Implant"];
 
-  // Gallery items containing both videos and images
   const galleryItems = [
-    // { id: 1, category: "Clinic Tour", src: "/homepage/video1.mp4", type: "video", alt: "Reception Area" },
-    // { id: 2, category: "Equipment", src: "/homepage/video2.mp4", type: "video", alt: "Advanced Dental Chair" },
-    { id: 3, category: "Patient Smiles", src: "/homepage/video3.mp4", type: "video", alt: "Happy Patient" },
-    { id: 4, category: "Clinic Tour", src: "/homepage/video4.mp4", type: "video", alt: "Consultation Room" },
-    { id: 5, category: "Equipment", src: "/homepage/video5.mp4", type: "video", alt: "3D X-Ray Machine" },
-    { id: 6, category: "Patient Smiles", src: "/homepage/video6.mp4", type: "video", alt: "Successful Implant Patient" },
-    { id: 7, category: "Clinic Tour", src: "/homepage/video7.mp4", type: "video", alt: "Operating Room" },
-    { id: 8, category: "Equipment", src: "/homepage/video8.mp4", type: "video", alt: "Sterilization Area" },
-    { id: 9, category: "Equipment", src: "/homepage/video9.mp4", type: "video", alt: "Root canal treatment" },
-    
-    // Dental Implant Images
+    { id: 3, category: "Patient Smiles", src: "/homepage/video3.mp4", type: "video", alt: "Happy Patient Smile Transformation" },
+    { id: 4, category: "Clinic Tour", src: "/homepage/video4.mp4", type: "video", alt: "Premium Consultation Suite" },
+    // { id: 5, category: "Equipment", src: "/homepage/video5.mp4", type: "video", alt: "Advanced 3D Digital X-Ray Diagnostic Suite" },
+    { id: 6, category: "Patient Smiles", src: "/homepage/video6.mp4", type: "video", alt: "Successful Implant Patient Interview" },
+    { id: 7, category: "Clinic Tour", src: "/homepage/video7.mp4", type: "video", alt: "State-of-the-Art Surgical Operating Room" },
+    { id: 8, category: "Equipment", src: "/homepage/video8.mp4", type: "video", alt: "Advanced Class-B Sterilization Area" },
+    { id: 9, category: "Equipment", src: "/homepage/video9.mp4", type: "video", alt: "Microscopic Root Canal Treatment Technology" },
     { id: 10, category: "Dental Implant", src: implant1.src, type: "image", alt: "Dental Implant Procedure Overview" },
     { id: 11, category: "Dental Implant", src: implant2.src, type: "image", alt: "Advanced Dental Implant Technology" },
     { id: 12, category: "Dental Implant", src: implant3.src, type: "image", alt: "Premium Dental Implant Structure" },
@@ -40,121 +34,97 @@ const VideoGallery = () => {
     { id: 16, category: "Dental Implant", src: implant7.src, type: "image", alt: "Our Dental Implant Specialist" },
   ];
 
-  // Filter items based on active tab
   const filteredItems = galleryItems.filter(
     (item) => activeTab === "All" || item.category === activeTab
   );
 
-  // Animation Variants
-  const fadeUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  };
-
   return (
-    <section id="gallery" className="bg-white py-16 md:py-24 px-4 md:px-8 overflow-hidden relative">
+    <section id="gallery" className="bg-slate-50/50 py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative border-t border-b border-slate-100">
       <div className="max-w-7xl mx-auto">
         
         {/* Header Section */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
-          className="text-center mb-10 md:mb-14 space-y-4"
-        >
-          <h3 className="text-xs sm:text-sm font-semibold tracking-widest text-[#2AACDE] uppercase flex items-center justify-center gap-2">
-            <span className="w-8 h-0.5 bg-[#2AACDE] rounded-full"></span>
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wider text-sky-600 bg-sky-50 uppercase">
             Media Gallery
-            <span className="w-8 h-0.5 bg-[#2AACDE] rounded-full"></span>
-          </h3>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
-            Take a Tour of <br className="hidden sm:block" />
-            <span className="text-[#2AACDE]">Our Premium Clinic</span>
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15]">
+            Take a Tour of <span className="bg-gradient-to-r from-sky-600 to-blue-700 bg-clip-text text-transparent">Our Premium Clinic</span>
           </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base font-normal">
-            Explore our state-of-the-art facilities, advanced dental equipment, dental implants, and the happy smiles of our patients.
+          <p className="text-base sm:text-lg text-slate-500 font-normal leading-relaxed">
+            Explore our state-of-the-art facilities, advanced surgical equipment, medical implants, and the transformations of our patients.
           </p>
-        </motion.div>
+        </div>
 
         {/* Filter Tabs */}
-        <motion.div 
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap items-center justify-center gap-2 md:gap-4 mb-10 md:mb-12"
-        >
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveTab(category)}
-              className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
-                activeTab === category
-                  ? "bg-[#2AACDE] text-white shadow-md"
-                  : "bg-slate-50 text-slate-600 border border-slate-200 hover:border-[#2AACDE]/40 hover:bg-[#2AACDE]/10 hover:text-[#0548AF]"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </motion.div>
+        <div className="flex items-center justify-center mb-12">
+          <div className="inline-flex flex-wrap sm:flex-nowrap p-1.5 bg-white border border-slate-200/80 rounded-2xl shadow-sm gap-1 max-w-full overflow-x-auto scrollbar-none">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveTab(category)}
+                className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 whitespace-nowrap ${
+                  activeTab === category
+                    ? "bg-slate-900 text-white shadow-sm"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </div>
 
-        {/* Video & Image Grid */}
-        <motion.div 
-          layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
-        >
+        {/* Media Grid */}
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item) => (
               <motion.div
                 key={item.id}
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                onClick={() => setSelectedItem(item)} // Open modal on click
-                className="group relative rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-square md:aspect-[4/3] bg-slate-900 cursor-pointer shadow-sm hover:shadow-xl transition-shadow"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.35 }}
+                onClick={() => setSelectedItem(item)}
+                className="group relative overflow-hidden aspect-[16/10] bg-slate-100 cursor-pointer border border-slate-200/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
-                {/* Conditional Rendering for Video or Image */}
-                {item.type === "video" ? (
-                  <video
-                    src={item.src}
-                    aria-label={item.alt}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-40"
-                  />
-                ) : (
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-40"
-                  />
-                )}
-
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-                  {/* Persistent Icon (Play for Video, Maximize for Image) */}
-                  <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-md p-2 rounded-full text-white opacity-100 transition-opacity duration-300 group-hover:opacity-0">
-                    {item.type === "video" ? <Play size={16} fill="currentColor" /> : <Maximize2 size={16} />}
-                  </div>
-
-                  {/* Expand / Details on Hover */}
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center h-full w-full">
-                    <div className="bg-[#2AACDE]/90 shadow-lg backdrop-blur-sm p-4 rounded-full text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                      {item.type === "video" ? (
-                        <Play size={24} fill="currentColor" className="ml-1" />
-                      ) : (
-                        <Maximize2 size={24} />
-                      )}
+                {/* Media Element */}
+                <div className="w-full h-full relative overflow-hidden bg-slate-950">
+                  {item.type === "video" ? (
+                    <div className="w-full h-full relative">
+                      <video 
+                        src={item.src}
+                        aria-label={item.alt}
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-95"
+                      />
+                      {/* Dark overlay specifically to keep medical images crisp, but videos polished */}
+                      <div className="absolute inset-0 bg-slate-950/10 group-hover:bg-slate-950/30 transition-colors duration-300" />
                     </div>
-                    <p className="text-white font-medium text-center mt-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                      {item.alt}
-                    </p>
-                  </div>
+                  ) : (
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-100"
+                    />
+                  )}
+                </div>
+
+                {/* Micro-badge Tag for Media Type (Always visible Top-Right) */}
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-2.5 py-1.5 rounded-xl border border-slate-200/30 text-slate-800 shadow-sm flex items-center justify-center transition-all duration-300 group-hover:bg-sky-600 group-hover:text-white">
+                  {item.type === "video" ? <Play size={12} fill="currentColor" /> : <Maximize2 size={12} />}
+                </div>
+
+                {/* Elegant, clean caption system (Revealed elegantly on hover) */}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent p-5 pt-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-sky-400 mb-1">
+                    {item.category}
+                  </span>
+                  <p className="text-white text-sm font-medium line-clamp-1">
+                    {item.alt}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -162,52 +132,58 @@ const VideoGallery = () => {
         </motion.div>
       </div>
 
-      {/* Pop-up Modal for Video / Image */}
+      {/* Pop-up Lightbox Modal */}
       <AnimatePresence>
         {selectedItem && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedItem(null)} // Close when clicking background
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 sm:p-8"
+            onClick={() => setSelectedItem(null)}
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950/95 backdrop-blur-md p-4 sm:p-6"
           >
+            {/* Modal Container */}
             <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the content itself
-              className="relative w-full max-w-5xl bg-black rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/10"
+              initial={{ scale: 0.98, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.98, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-5xl bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-800 flex flex-col"
             >
-              {/* Close Button */}
+              {/* Close Button Inside Modal Framework */}
               <button
                 onClick={() => setSelectedItem(null)}
-                className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-red-500 text-white rounded-full transition-colors duration-200"
+                className="absolute top-4 right-4 z-20 p-2.5 bg-slate-900/80 hover:bg-rose-600/90 backdrop-blur-md text-slate-200 hover:text-white rounded-xl transition-all shadow-md border border-slate-700/50"
               >
-                <X size={20} />
+                <X size={18} />
               </button>
 
-              {/* Conditional Media Player in Modal */}
-              {selectedItem.type === "video" ? (
-                <video
-                  src={selectedItem.src}
-                  controls
-                  autoPlay
-                  className="w-full h-auto max-h-[80vh] object-contain bg-black"
-                >
-                  Your browser does not support the video tag.
-                </video>
-              ) : (
-                <img
-                  src={selectedItem.src}
-                  alt={selectedItem.alt}
-                  className="w-full h-auto max-h-[80vh] object-contain bg-black mx-auto"
-                />
-              )}
+              {/* Dynamic Content Frame */}
+              <div className="w-full relative bg-slate-950 flex items-center justify-center max-h-[75vh]">
+                {selectedItem.type === "video" ? (
+                  <video
+                    src={selectedItem.src}
+                    controls
+                    autoPlay
+                    className="w-full h-auto max-h-[75vh] object-contain"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <img
+                    src={selectedItem.src}
+                    alt={selectedItem.alt}
+                    className="w-full h-auto max-h-[75vh] object-contain mx-auto"
+                  />
+                )}
+              </div>
               
-              {/* Title under the media */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 pointer-events-none">
-                <p className="text-white text-lg font-medium">{selectedItem.alt}</p>
+              {/* Informative Modal Base Strip */}
+              <div className="bg-slate-900 border-t border-slate-800 p-5 sm:p-6">
+                <span className="text-xs font-semibold uppercase tracking-wider text-sky-500 block mb-1">
+                  {selectedItem.category}
+                </span>
+                <p className="text-slate-200 text-base sm:text-lg font-medium">{selectedItem.alt}</p>
               </div>
             </motion.div>
           </motion.div>

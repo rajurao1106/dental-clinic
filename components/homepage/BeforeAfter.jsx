@@ -90,7 +90,16 @@ const BeforeAfter = () => {
       duration: "8 Months",
       beforeImg: "/homepage/before3.jpeg",
       afterImg: "/homepage/after3.jpeg",
-    }
+    },
+     {
+      id: 4,
+      title: "Zygomatic implant",
+      description: "OM Agarwal MD Of Hira Group Raipur",
+      duration: "8 Months",
+      beforeImg: "/homepage/before4.jpeg",
+      afterImg: "/homepage/after4.jpeg",
+    },
+    
   ];
 
   // Animation Variants
