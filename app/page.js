@@ -1,4 +1,5 @@
 import AboutUs from '@/components/homepage/About'
+import AiTechnologySection from '@/components/homepage/AiTechnologySection'
 import BeforeAfter from '@/components/homepage/BeforeAfter'
 import Booking from '@/components/homepage/CTA'
 import FAQ from '@/components/homepage/FAQ'
@@ -18,6 +19,7 @@ export default function page() {
       <Gallery/>
       <BeforeAfter/>
       <WhyChooseUs/>
+      <AiTechnologySection/>
       <Testimonials/>
       <FAQ/>
       <Booking/>

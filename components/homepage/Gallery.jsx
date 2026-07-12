@@ -20,7 +20,6 @@ const VideoGallery = () => {
   const galleryItems = [
     { id: 3, category: "Patient Smiles", src: "/homepage/video3.mp4", type: "video", alt: "Happy Patient Smile Transformation" },
     { id: 4, category: "Clinic Tour", src: "/homepage/video4.mp4", type: "video", alt: "Premium Consultation Suite" },
-    // { id: 5, category: "Equipment", src: "/homepage/video5.mp4", type: "video", alt: "Advanced 3D Digital X-Ray Diagnostic Suite" },
     { id: 6, category: "Patient Smiles", src: "/homepage/video6.mp4", type: "video", alt: "Successful Implant Patient Interview" },
     { id: 7, category: "Clinic Tour", src: "/homepage/video7.mp4", type: "video", alt: "State-of-the-Art Surgical Operating Room" },
     { id: 8, category: "Equipment", src: "/homepage/video8.mp4", type: "video", alt: "Advanced Class-B Sterilization Area" },
@@ -75,16 +74,17 @@ const VideoGallery = () => {
         </div>
 
         {/* Media Grid */}
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {/* Removed motion.div and layout prop from the container to stop grid-recalculation glitches */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item) => (
               <motion.div
                 key={item.id}
-                layout
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.35 }}
+                // Removed the layout prop here
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.25 }}
                 onClick={() => setSelectedItem(item)}
                 className="group relative overflow-hidden aspect-[16/10] bg-slate-100 cursor-pointer border border-slate-200/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
@@ -99,7 +99,6 @@ const VideoGallery = () => {
                         playsInline
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-95"
                       />
-                      {/* Dark overlay specifically to keep medical images crisp, but videos polished */}
                       <div className="absolute inset-0 bg-slate-950/10 group-hover:bg-slate-950/30 transition-colors duration-300" />
                     </div>
                   ) : (
@@ -112,12 +111,12 @@ const VideoGallery = () => {
                   )}
                 </div>
 
-                {/* Micro-badge Tag for Media Type (Always visible Top-Right) */}
+                {/* Micro-badge Tag for Media Type */}
                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-2.5 py-1.5 rounded-xl border border-slate-200/30 text-slate-800 shadow-sm flex items-center justify-center transition-all duration-300 group-hover:bg-sky-600 group-hover:text-white">
                   {item.type === "video" ? <Play size={12} fill="currentColor" /> : <Maximize2 size={12} />}
                 </div>
 
-                {/* Elegant, clean caption system (Revealed elegantly on hover) */}
+                {/* Caption system */}
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent p-5 pt-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end">
                   <span className="text-xs font-semibold uppercase tracking-wider text-sky-400 mb-1">
                     {item.category}
@@ -129,7 +128,7 @@ const VideoGallery = () => {
               </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
 
       {/* Pop-up Lightbox Modal */}
@@ -150,7 +149,7 @@ const VideoGallery = () => {
               onClick={(e) => e.stopPropagation()}
               className="relative w-full max-w-5xl bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-800 flex flex-col"
             >
-              {/* Close Button Inside Modal Framework */}
+              {/* Close Button */}
               <button
                 onClick={() => setSelectedItem(null)}
                 className="absolute top-4 right-4 z-20 p-2.5 bg-slate-900/80 hover:bg-rose-600/90 backdrop-blur-md text-slate-200 hover:text-white rounded-xl transition-all shadow-md border border-slate-700/50"
