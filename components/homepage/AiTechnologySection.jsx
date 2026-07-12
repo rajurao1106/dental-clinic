@@ -179,7 +179,7 @@ const AiTechnologySection = () => {
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5] lg:aspect-square bg-slate-900 shadow-2xl border-4 border-white">
               {/* Replace with your actual 3D Scanner Image */}
               <img
-                src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1000&auto=format&fit=crop"
+                src="https://www.sikarwardentalhospital.com/homepage/Intraoral-scanner.jpg"
                 alt="Digital 3D Intraoral Scanner at Sikarwar Dental Hospital Raipur"
                 className="w-full h-full object-cover opacity-90"
               />
