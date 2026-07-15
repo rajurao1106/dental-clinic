@@ -150,10 +150,11 @@ const Navbar = () => {
       {/* Appointment Modal Popup */}
       {isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
-          {/* Modal Container */}
-          <div className="bg-white rounded-2xl w-full max-w-md shadow-xl relative animate-in fade-in zoom-in duration-200 flex flex-col">
-            {/* Modal Header */}
-            <div className="flex justify-between items-center p-6 border-b border-slate-100">
+          {/* Modal Container - Added max-h-[90vh] and overflow-y-auto for mobile scrolling */}
+          <div className="bg-white rounded-2xl w-full max-w-md max-h-[90vh] overflow-y-auto shadow-xl relative animate-in fade-in zoom-in duration-200 flex flex-col">
+            
+            {/* Modal Header - Responsive padding */}
+            <div className="flex justify-between items-center p-4 sm:p-6 border-b border-slate-100 sticky top-0 bg-white z-10 rounded-t-2xl">
               <div>
                 <h3 className="text-lg font-semibold text-slate-900">
                   Book an Appointment
@@ -165,13 +166,14 @@ const Navbar = () => {
               <button
                 onClick={() => setIsModalOpen(false)}
                 className="text-slate-400 hover:text-slate-600 hover:bg-slate-100 p-2 rounded-lg transition-colors"
+                aria-label="Close modal"
               >
                 <X size={20} />
               </button>
             </div>
 
-            {/* Modal Form */}
-            <form onSubmit={handleSubmit} className="p-6 space-y-5">
+            {/* Modal Form - Responsive padding and increased tap targets */}
+            <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 sm:space-y-5">
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">
                   Full Name
@@ -180,8 +182,8 @@ const Navbar = () => {
                   type="text"
                   name="name"
                   required
-                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900 placeholder:text-slate-400"
-                  placeholder="John Doe"
+                  className="w-full px-4 py-3 sm:py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900 placeholder:text-slate-400"
+                  placeholder="Full Name"
                 />
               </div>
 
@@ -193,8 +195,8 @@ const Navbar = () => {
                   type="tel"
                   name="phone"
                   required
-                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900 placeholder:text-slate-400"
-                  placeholder="+91 98765 43210"
+                  className="w-full px-4 py-3 sm:py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900 placeholder:text-slate-400"
+                  placeholder="Phone Number"
                 />
               </div>
 
@@ -205,7 +207,7 @@ const Navbar = () => {
                 <select
                   name="service"
                   required
-                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900 bg-white"
+                  className="w-full px-4 py-3 sm:py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900 bg-white"
                 >
                   <option value="">General Consultation</option>
                   <option value="implants">Dental Implants</option>
@@ -223,15 +225,15 @@ const Navbar = () => {
                   type="date"
                   name="date"
                   required
-                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900"
+                  className="w-full px-4 py-3 sm:py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900"
                 />
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 pb-2">
                 <button
                   type="submit"
                   disabled={status === "Sending..."}
-                  className="w-full bg-[#2AACDE] hover:bg-[#0548AF] text-white font-semibold py-3 rounded-lg transition-all shadow-sm disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full bg-[#2AACDE] hover:bg-[#0548AF] text-white font-semibold py-3.5 rounded-lg transition-all shadow-sm disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {status || "Confirm Booking"}
                 </button>

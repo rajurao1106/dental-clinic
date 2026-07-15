@@ -205,9 +205,10 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="relative z-20 max-w-6xl mx-auto mt-16 bg-white p-5 md:p-6 rounded-2xl shadow-md border border-slate-200 flex flex-col lg:flex-row gap-5 items-stretch lg:items-center"
         >
-          <div className="w-full flex flex-col lg:flex-row gap-5">
+          {/* Changed gap-5 to sm:grid-cols-2 for better tablet layout before hitting full desktop */}
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-row gap-5">
             {/* Name Field */}
-            <div className="flex-1 border-b lg:border-b-0 lg:border-r border-slate-100 pb-4 lg:pb-0 lg:pr-4 group">
+            <div className="flex-1 border-b sm:border-b-0 sm:border-r border-slate-100 pb-4 sm:pb-0 sm:pr-4 lg:pr-4 group">
               <label className="text-xs font-medium text-slate-500 tracking-wide mb-1.5 block group-focus-within:text-[#2AACDE] transition-colors">
                 Your Name
               </label>
@@ -217,14 +218,14 @@ const Hero = () => {
                   type="text"
                   name="name"
                   required
-                  placeholder="Your Name"
-                  className="w-full outline-none text-sm font-medium focus:ring-0 py-1 transition-all bg-transparent placeholder:text-slate-300"
+                  placeholder="Full Name"
+                  className="w-full outline-none text-base lg:text-sm font-medium focus:ring-0 py-2 lg:py-1 transition-all bg-transparent placeholder:text-slate-300"
                 />
               </div>
             </div>
 
             {/* Phone Field */}
-            <div className="flex-1 border-b lg:border-b-0 lg:border-r border-slate-100 pb-4 lg:pb-0 lg:pr-4 group">
+            <div className="flex-1 border-b lg:border-b-0 lg:border-r border-slate-100 pb-4 sm:pb-0 sm:pr-4 lg:pr-4 group">
               <label className="text-xs font-medium text-slate-500 tracking-wide mb-1.5 block group-focus-within:text-[#2AACDE] transition-colors">
                 Phone Number
               </label>
@@ -234,14 +235,14 @@ const Hero = () => {
                   type="tel"
                   name="phone"
                   required
-                  placeholder="+91 00000 00000"
-                  className="w-full outline-none text-sm font-medium focus:ring-0 py-1 transition-all bg-transparent placeholder:text-slate-300"
+                  placeholder="Phone Number"
+                  className="w-full outline-none text-base lg:text-sm font-medium focus:ring-0 py-2 lg:py-1 transition-all bg-transparent placeholder:text-slate-300"
                 />
               </div>
             </div>
 
             {/* Date Field */}
-            <div className="flex-1 border-b lg:border-b-0 lg:border-r border-slate-100 pb-4 lg:pb-0 lg:pr-4 group">
+            <div className="flex-1 border-b sm:border-b-0 sm:border-r border-slate-100 pb-4 sm:pb-0 sm:pr-4 lg:pr-4 group">
               <label className="text-xs font-medium text-slate-500 tracking-wide mb-1.5 block group-focus-within:text-[#2AACDE] transition-colors">
                 Preferred Date
               </label>
@@ -251,13 +252,13 @@ const Hero = () => {
                   type="date"
                   name="date"
                   required
-                  className="w-full outline-none text-sm font-medium focus:ring-0 py-1 transition-all bg-transparent text-slate-700 cursor-pointer"
+                  className="w-full outline-none text-base lg:text-sm font-medium focus:ring-0 py-2 lg:py-1 transition-all bg-transparent text-slate-700 cursor-pointer"
                 />
               </div>
             </div>
 
             {/* Time Field */}
-            <div className="flex-1 pb-4 lg:pb-0 lg:pr-4 group">
+            <div className="flex-1 pb-4 sm:pb-0 lg:pr-4 group">
               <label className="text-xs font-medium text-slate-500 tracking-wide mb-1.5 block group-focus-within:text-[#2AACDE] transition-colors">
                 Preferred Time
               </label>
@@ -267,19 +268,19 @@ const Hero = () => {
                   type="time"
                   name="time"
                   required
-                  className="w-full outline-none text-sm font-medium focus:ring-0 py-1 transition-all bg-transparent text-slate-700 cursor-pointer"
+                  className="w-full outline-none text-base lg:text-sm font-medium focus:ring-0 py-2 lg:py-1 transition-all bg-transparent text-slate-700 cursor-pointer"
                 />
               </div>
             </div>
           </div>
 
           {/* Submit Button & Status */}
-          <div className="flex flex-col items-center gap-2 w-full lg:w-auto shrink-0">
+          <div className="flex flex-col items-center gap-2 w-full lg:w-auto shrink-0 mt-2 lg:mt-0">
             <motion.button
               type="submit"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full lg:w-auto bg-[#2AACDE] hover:bg-[#0548AF] text-white px-8 py-3.5 rounded-lg text-sm font-medium shadow-sm transition-colors whitespace-nowrap"
+              className="w-full lg:w-auto bg-[#2AACDE] hover:bg-[#0548AF] text-white px-8 py-4 lg:py-3.5 rounded-lg text-sm font-medium shadow-sm transition-colors whitespace-nowrap"
             >
               {inlineStatus || "Request Appointment"}
             </motion.button>
@@ -290,11 +291,11 @@ const Hero = () => {
       {/* Appointment Modal Popup */}
       {isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
-          {/* Modal Container */}
-          <div className="bg-white rounded-2xl w-full max-w-md shadow-xl relative animate-in fade-in zoom-in duration-200 flex flex-col">
+          {/* Modal Container - Added max-h-[90vh] and overflow-y-auto */}
+          <div className="bg-white rounded-2xl w-full max-w-md max-h-[90vh] overflow-y-auto shadow-xl relative animate-in fade-in zoom-in duration-200 flex flex-col">
             
-            {/* Modal Header */}
-            <div className="flex justify-between items-center p-6 border-b border-slate-100">
+            {/* Modal Header - Made sticky with responsive padding */}
+            <div className="flex justify-between items-center p-4 sm:p-6 border-b border-slate-100 sticky top-0 bg-white z-10 rounded-t-2xl">
               <div>
                 <h3 className="text-lg font-semibold text-slate-900">Book an Appointment</h3>
                 <p className="text-slate-500 text-sm mt-1">We'll get back to you shortly.</p>
@@ -302,21 +303,22 @@ const Hero = () => {
               <button 
                 onClick={() => setIsModalOpen(false)} 
                 className="text-slate-400 hover:text-slate-600 hover:bg-slate-100 p-2 rounded-lg transition-colors"
+                aria-label="Close modal"
               >
                 <X size={20} />
               </button>
             </div>
 
-            {/* Modal Form */}
-            <form onSubmit={handleModalSubmit} className="p-6 space-y-5">
+            {/* Modal Form - Responsive padding and text-base for mobile */}
+            <form onSubmit={handleModalSubmit} className="p-4 sm:p-6 space-y-4 sm:space-y-5">
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">Full Name</label>
                 <input 
                   type="text" 
                   name="name"
                   required 
-                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900 placeholder:text-slate-400" 
-                  placeholder="John Doe" 
+                  className="w-full px-4 py-3 sm:py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-base sm:text-sm text-slate-900 placeholder:text-slate-400" 
+                  placeholder="Full Name" 
                 />
               </div>
               
@@ -326,14 +328,14 @@ const Hero = () => {
                   type="tel" 
                   name="phone"
                   required 
-                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900 placeholder:text-slate-400" 
-                  placeholder="+91 98765 43210" 
+                  className="w-full px-4 py-3 sm:py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-base sm:text-sm text-slate-900 placeholder:text-slate-400" 
+                  placeholder="Phone Number" 
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">Select Service</label>
-                <select name="service" required className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900 bg-white">
+                <select name="service" required className="w-full px-4 py-3 sm:py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-base sm:text-sm text-slate-900 bg-white">
                   <option value="">General Consultation</option>
                   <option value="implants">Dental Implants</option>
                   <option value="root-canal">Root Canal Treatment</option>
@@ -348,15 +350,15 @@ const Hero = () => {
                   type="date" 
                   name="date"
                   required 
-                  className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-sm text-slate-900" 
+                  className="w-full px-4 py-3 sm:py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2AACDE]/30 focus:border-[#2AACDE] transition-all text-base sm:text-sm text-slate-900" 
                 />
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 pb-2">
                 <button 
                   type="submit" 
                   disabled={modalStatus === "Sending..."}
-                  className="w-full bg-[#2AACDE] hover:bg-[#0548AF] text-white font-semibold py-3 rounded-lg transition-all shadow-sm disabled:bg-[#2AACDE] disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full bg-[#2AACDE] hover:bg-[#0548AF] text-white font-semibold py-3.5 rounded-lg transition-all shadow-sm disabled:bg-[#2AACDE] disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {modalStatus || "Confirm Booking"}
                 </button>
