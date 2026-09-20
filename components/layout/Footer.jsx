@@ -7,10 +7,10 @@ import Image from 'next/image';
 const Footer = () => {
   // Social icons mapping
   const socialIcons = [
-    { Icon: FaFacebook, link: '#' },
-    { Icon: FaTwitter, link: '#' },
-    { Icon: FaInstagram, link: '#' },
-    { Icon: FaYoutube, link: '#' }
+    { Icon: FaFacebook, link: 'https://www.facebook.com/sikarwardentalhospitalandimplantcenterraipur' },
+    // { Icon: FaTwitter, link: '#' },
+    { Icon: FaInstagram, link: 'https://www.instagram.com/sikarwardentalhospitalraipur/' },
+    // { Icon: FaYoutube, link: '#' }
   ];
 
   // Updated Quick Links with section IDs
