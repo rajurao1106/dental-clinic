@@ -8,38 +8,47 @@ const FAQ = () => {
   const [openFaq, setOpenFaq] = useState(0); // Defaults to the first item
 
   // Replaced Lorem Ipsum with realistic Dental FAQ content
-  const faqs = [
-    {
-      question: "What services do you offer?",
-      answer:
-        "We provide comprehensive dental care including dental implants, painless root canal treatments, smile designing, orthodontic aligners, oral surgery, and routine check-ups.",
-    },
-    {
-      question: "Do I need to make an appointment?",
-      answer:
-        "While we do accommodate walk-ins when possible, we highly recommend booking an appointment to ensure you receive timely care without long waiting periods.",
-    },
-    {
-      question: "What are your clinic timings?",
-      answer:
-        "Our standard OPD hours are from 10:00 AM to 8:00 PM, Monday through Saturday. However, our emergency dental services are available 24/7.",
-    },
-    {
-      question: "Can I book an emergency dental appointment?",
-      answer:
-        "Yes. If you are experiencing severe toothache, trauma, or bleeding, please call our emergency hotline immediately. We prioritize urgent cases.",
-    },
-    {
-      question: "Do you offer online consultations?",
-      answer:
-        "Yes, we provide preliminary online video consultations to understand your concerns and guide you on the necessary steps before your physical visit.",
-    },
-    {
-      question: "What is the cost of a dental consultation?",
-      answer:
-        "Our initial consultation fee is affordable and transparent. Total treatment costs depend on the diagnosis and procedure required, which will be thoroughly discussed with you beforehand.",
-    },
-  ];
+const faqs = [
+  {
+    question:
+      "What dental services do you offer at your dental hospital in Raipur?",
+    answer:
+      "We provide comprehensive dental care in Raipur, including dental check-ups, teeth cleaning, root canal treatment, dental implants, crowns and bridges, tooth extraction, braces, teeth whitening, cosmetic dentistry, and other restorative and preventive dental treatments.",
+  },
+  {
+    question:
+      "How can I book an appointment at your dental clinic in Raipur?",
+    answer:
+      "You can book an appointment at our dental clinic in Raipur by calling us, sending a WhatsApp message, or using our online appointment booking option. We recommend scheduling an appointment in advance for a convenient consultation.",
+  },
+  {
+    question:
+      "What are the clinic timings of your dental hospital in Raipur?",
+    answer:
+      "Our dental clinic in Raipur is open during convenient clinic hours. Please contact us before visiting to confirm the latest consultation and appointment timings.",
+  },
+  {
+    question: "Do you provide emergency dental treatment in Raipur?",
+    answer:
+      "Yes, we provide dental care for urgent problems such as severe toothache, dental infection, broken or damaged teeth, swelling, and other dental emergencies. Contact our dental hospital in Raipur to check emergency appointment availability.",
+  },
+  {
+    question: "Do you offer online dental consultations?",
+    answer:
+      "Yes, online dental consultations may be available for suitable dental concerns. Our dentist can discuss your symptoms and recommend whether an in-person examination is required.",
+  },
+  {
+    question: "What is the cost of a dental consultation?",
+    answer:
+      "Our initial consultation fee is affordable and transparent. Total treatment costs depend on the diagnosis and procedure required, which will be thoroughly discussed with you beforehand.",
+  },
+  {
+    question:
+      "Where is your dental hospital located in Raipur?",
+    answer:
+      "Our dental hospital is conveniently located in Gol Chowk, Beside Deerghayu Hospital, Deendayal Upadhyay Nagar, Raipur, Chhattisgarh. Patients can visit our dental clinic in Raipur for dental consultations, treatments, and emergency dental care. Please use Google Maps or contact us for directions and assistance.",
+  },
+];
 
   // Smoother Animation Variants
   const fadeUp = {
