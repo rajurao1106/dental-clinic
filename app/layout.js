@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Whatsapp from "@/components/layout/Whatsapp";
-import { localBusinessSchema } from "./schema/structured-data";
+import { structuredData } from "./schema/structured-data";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema),
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
           }}
         />
       </head>
