@@ -140,18 +140,21 @@ const Hero = () => {
               variants={fadeUp}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tight"
             >
-              Best <span className="text-[#2AACDE]">Dental Hospital</span> &
-              Implant Center in Raipur
+              <a href="/">Best <span className="text-[#2AACDE]">Dental Hospital</span> &
+              Implant Center in Raipur</a>
             </motion.h1>
 
             {/* Supporting Text */}
             <motion.p
               variants={fadeUp}
-              className="text-slate-600 max-w-lg text-lg leading-relaxed font-normal"
+              className="text-slate-600 max-w-2xl text-lg leading-relaxed font-normal"
             >
-              At <strong className="font-semibold text-slate-800">Sikarwar Dental Hospital</strong>, we
-              believe every smile deserves expert care. Since 2011, we have been
-              providing advanced dental treatments, implants, and oral surgery.
+           
+              Sikarwar Dental Hospital provides advanced and comprehensive <br className="max-lg:hidden"/> {" "}
+   <a href="/" className="font-semibold text-slate-800">dental care in Raipur (C.G.)</a>, including dental implants, root canal
+treatment, oral surgery, cosmetic dentistry, and preventive care.
+Our experienced dental professionals use modern technology to
+deliver precise, safe, and personalized treatment.
             </motion.p>
 
             {/* Call to Actions - Trigger Modal on Click */}

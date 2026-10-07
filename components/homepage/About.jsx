@@ -96,22 +96,29 @@ const AboutUs = () => {
         >
           <div className="space-y-4 flex flex-col items-center lg:items-start">
             <motion.h3 variants={fadeUp} className="text-xs sm:text-sm font-semibold tracking-widest text-[#2AACDE] uppercase flex items-center gap-2">
-              <span className="w-6 sm:w-8 h-0.5 bg-[#2AACDE] rounded-full"></span>
-              About Us
+              {/* <span className="w-6 sm:w-8 h-0.5 bg-[#2AACDE] rounded-full"></span> */}
+             ABOUT SIKARWAR DENTAL HOSPITAL
             </motion.h3>
             
             <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
-              Welcome to <br />
-              <span className="text-[#2AACDE]">Sikarwar Dental Hospital</span>
+              {/* Welcome to <br /> */}
+              <a href="/">Trusted Dental Care in Raipur (C.G)</a>
             </motion.h2>
             
             <motion.div variants={fadeUp} className="space-y-4 text-slate-600 text-base sm:text-lg leading-relaxed max-w-lg pt-2 font-normal">
               <p>
-                <strong className="font-semibold text-slate-800">Sikarwar Dental Hospital & Implant Center</strong> is one of Raipur’s trusted centers for advanced dental and maxillofacial care. Our mission is simple—restore oral health, improve confidence, and create healthy smiles for every patient.
+                Sikarwar <strong className="font-semibold text-slate-800"> <a href="/"> Dental Hospital & Implant Center
+                Sikarwar Dental Hospital & Implant Center is a trusted dental hospital in Raipur (C.G.),</a> </strong>
+                 providing comprehensive dental and maxillofacial care. We help patients maintain healthy
+                  teeth, restore oral function, and achieve confident smiles through personalized, modern dental treatment.
               </p>
+
               <p>
-                With years of expertise and modern treatment protocols, we provide complete dental care under one roof—from routine cleanings to complex implant surgeries.
-              </p>
+With 15 years of experience and advanced treatment protocols, our  {" "}
+<strong className="font-semibold text-slate-800"><a href="/">dental clinic in Raipur</a></strong> provides a wide range of services under one roof—from routine 
+dental check-ups and teeth cleaning to root canal treatment, dental implants, oral 
+surgery, cosmetic dentistry, and restorative dental care.              </p>
+<p>Our approach combines accurate diagnosis, modern technology, and patient-focused care to make every dental experience as comfortable and effective as possible.</p>
             </motion.div>
           </div>
 
@@ -129,7 +136,7 @@ const AboutUs = () => {
             ))}
           </motion.ul>
 
-          {/* <motion.div variants={fadeUp} className="pt-2 w-full sm:w-auto">
+          <motion.div variants={fadeUp} className="pt-2 w-full sm:w-auto">
             <motion.button 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -138,7 +145,7 @@ const AboutUs = () => {
               Meet Dr. Sunny Sikarwar
               <ArrowRight size={18} />
             </motion.button>
-          </motion.div> */}
+          </motion.div>
         </motion.div>
 
       </div>
