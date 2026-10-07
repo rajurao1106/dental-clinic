@@ -25,10 +25,14 @@ const Footer = () => {
   // Updated Treatments with section IDs
   const treatments = [
     { name: 'Dental Implants', href: '#services' },
-    { name: 'Teeth in 24 Hours', href: '#services' },
-    { name: 'Root Canal', href: '#services' },
+    { name: 'Teeth Fixes in 24 Hours', href: '#services' },
+    { name: 'Root Canal Treatment', href: '#services' },
     { name: 'Braces & Aligners', href: '#services' },
-    { name: 'Oral & Maxillofacial Surgery', href: '#services' }
+    { name: 'Dental Implant', href: '#services' },
+    { name: 'Wisdom Tooth Surgery', href: '#services' },
+    { name: 'Smile Design', href: '#services' },
+    { name: 'Oral & Maxilofacial Surgery', href: '#services' },
+    
   ];
 
   return (
