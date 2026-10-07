@@ -107,7 +107,7 @@ const AboutUs = () => {
             
             <motion.div variants={fadeUp} className="space-y-4 text-slate-600 text-base sm:text-lg leading-relaxed max-w-lg pt-2 font-normal">
               <p>
-                Sikarwar <strong className="font-semibold text-slate-800"> <a href="/"> Sikarwar Dental Hospital & Implant Center is a trusted dental hospital in Raipur (C.G.),</a> </strong>
+                 <strong className="font-semibold text-slate-800"> <a href="/"> Sikarwar Dental Hospital & Implant Center is a trusted dental hospital in Raipur (C.G.),</a> </strong>
                  providing comprehensive dental and maxillofacial care. We help patients maintain healthy
                   teeth, restore oral function, and achieve confident smiles through personalized, modern dental treatment.
               </p>
