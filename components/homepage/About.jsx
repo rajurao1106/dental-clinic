@@ -36,7 +36,7 @@ const AboutUs = () => {
 
   return (
     <section id='about' className="py-12 md:py-20 px-4 md:px-8 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
         
         {/* Left Side: Image Composition */}
         <motion.div 
