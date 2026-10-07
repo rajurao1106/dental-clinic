@@ -194,7 +194,7 @@ deliver precise, safe, and personalized treatment.
               animate="visible"
               variants={imageReveal}
               src="/homepage/hero2.png"
-              alt="Dr. Sunny Sikarwar - Best Dentist in Raipur"
+              alt="dental care in Raipur (C.G.)"
               className="relative z-10 w-full max-w-md lg:max-w-[500px] object-cover rounded-2xl "
             />
           </div>
