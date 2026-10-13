@@ -5,6 +5,19 @@ const websiteUrl = "https://www.sikarwardentalhospital.com";
 const logoUrl =
   "https://www.sikarwardentalhospital.com/_next/static/media/logo1.0dfhv4nd6q87d.png";
 
+export const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.sikarwardentalhospital.com/",
+    },
+  ],
+};
+
 export const structuredData = {
   "@context": "https://schema.org",
 

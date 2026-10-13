@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Whatsapp from "@/components/layout/Whatsapp";
-import { structuredData } from "./schema/structured-data";
+import { structuredData, breadcrumbSchema } from "./schema/structured-data";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +40,12 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
           }}
         />
+        <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+  }}
+/>
       </head>
       <body className="min-h-full flex flex-col">
         <Navbar />
