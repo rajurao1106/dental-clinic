@@ -5,6 +5,15 @@ import Footer from "@/components/layout/Footer";
 import Whatsapp from "@/components/layout/Whatsapp";
 import { structuredData, breadcrumbSchema } from "./schema/structured-data";
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://www.sikarwardentalhospital.com/#website",
+  name: "Sikarwar Dental Hospital And Implant Center",
+  url: "https://www.sikarwardentalhospital.com/",
+  inLanguage: "en-IN",
+};
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -17,9 +26,9 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title:
-    "Best Dental Hospital and Implant Center in Raipur (C.G) | Sikarwar Dental Hospital & Implant Center",
+    "Best Dental Hospital in Raipur (C.G) | Sikarwar Dental Hospital & Implant Center",
   description:
-    "Sikarwar Dental Hospital & Implant Center is a trusted Dental Hospital in Raipur offering dental implants, root canal treatment, oral surgery, wisdom tooth removal, and smile makeovers.",
+    "Sikarwar Dental Hospital & Implant Center is a leading dental hospital in Raipur, Chhattisgarh, offering dental implants, root canal treatment, braces, clear aligners, and advanced dental care.",
   verification: {
     google: "aGVbXo4KoE_9cN0sbHxMkKwleV_KfgsjwRwU1RshvNs",
   },
@@ -38,6 +47,12 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema).replace(/</g, "\\u003c"),
           }}
         />
         <script
