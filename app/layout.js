@@ -26,9 +26,35 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title:
-    "Best Dental Hospital in Raipur (C.G) | Sikarwar Dental Hospital & Implant Center",
+    "Best Dental Hospital in Raipur (C.G) | Sikarwar Dental Hospital And Implant Center",
   description:
-    "Sikarwar Dental Hospital & Implant Center is a leading dental hospital in Raipur, Chhattisgarh, offering dental implants, root canal treatment, braces, clear aligners, and advanced dental care.",
+    "Sikarwar Dental Hospital and Implant Centre is a leading dental hospital in Raipur, Chhattisgarh, offering dental implants, root canal treatment, braces, clear aligners, and advanced dental care.",
+  alternates: {
+    canonical: "https://www.sikarwardentalhospital.com/",
+  },
+  openGraph: {
+    type: "website",
+    title:
+      "Best Dental Hospital in Raipur (C.G) | Sikarwar Dental Hospital And Implant Center",
+    description:
+      "Sikarwar Dental Hospital and Implant Centre is a leading dental hospital in Raipur, Chhattisgarh, offering dental implants, root canal treatment, braces, clear aligners, and advanced dental care.",
+    url: "https://www.sikarwardentalhospital.com/",
+    images: [
+      "https://www.sikarwardentalhospital.com/favicon.ico?favicon.2ea1puqmcgj5y.ico",
+    ],
+    siteName: "Sikarwar Dental Hospital And Implant Center in Raipur",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Best Dental Hospital in Raipur (C.G) | Sikarwar Dental Hospital And Implant Center",
+    description:
+      "Sikarwar Dental Hospital and Implant Centre is a leading dental hospital in Raipur, Chhattisgarh, offering dental implants, root canal treatment, braces, clear aligners, and advanced dental care.",
+    images: [
+      "https://www.sikarwardentalhospital.com/favicon.ico?favicon.2ea1puqmcgj5y.ico",
+    ],
+  },
   verification: {
     google: "aGVbXo4KoE_9cN0sbHxMkKwleV_KfgsjwRwU1RshvNs",
   },
@@ -43,6 +69,10 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        <meta
+          name="twitter:url"
+          content="https://www.sikarwardentalhospital.com/"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
